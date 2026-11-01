@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Security Headers (Cyber Protection against XSS, Clickjacking & Data Leak) -->
+    
+    <!-- Strict Cyber Security Headers (Anti-XSS, Anti-Clickjacking, Referrer Shield) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.make.com https://*.eu1.make.celonis.com https://*.eu2.make.celonis.com;">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cdn.tailwindcss.com https://*.make.com https://*.eu1.make.celonis.com https://*.eu2.make.celonis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     
     <title>מכרז פרו | מודיעין מכרזים ועבודות לעסקים ישירות לוואטסאפ</title>
+    <meta name="description" content="מערכת מודיעין מכרזים זוטרים, בקשות להצעות מחיר ומאגרי ספקים ללא ערבות הגשה בנקאית לעסקים, פרילנסרים וחברות בישראל – ישירות לוואטסאפ.">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     
     <!-- Tailwind CSS -->
@@ -47,25 +50,34 @@
         .card-shadow {
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
         }
+        /* Strict IS 5568 AA Keyboard Focus Visibility */
+        *:focus-visible {
+            outline: 3px solid #F59E0B !important;
+            outline-offset: 2px !important;
+        }
         /* Accessibility Standard IS 5568 AA Classes */
         .acc-large-text { font-size: 118% !important; }
+        .acc-small-text { font-size: 90% !important; }
         .acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
         .acc-invert { filter: invert(100%) hue-rotate(180deg) !important; background-color: #000 !important; }
         .acc-highlight-links a, .acc-highlight-links button { text-decoration: underline !important; outline: 2px solid #F59E0B !important; }
+        .acc-highlight-headings h1, .acc-highlight-headings h2, .acc-highlight-headings h3 { background-color: rgba(16, 185, 129, 0.2) !important; border-right: 4px solid #10B981 !important; padding-right: 8px !important; }
         .acc-readable-font, .acc-readable-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.3px !important; }
+        .acc-big-cursor, .acc-big-cursor * { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="%23000000" stroke="%23FFFFFF" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>'), auto !important; }
         .acc-stop-animations *, .acc-stop-animations *::before, .acc-stop-animations *::after { animation: none !important; transition: none !important; }
+        
         .sr-only-focusable:focus {
             position: fixed; top: 12px; right: 12px; z-index: 10000;
             background: #10B981; color: #070C18; padding: 12px 20px; font-weight: 900; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        /* Honeypot hidden field */
+        /* Anti-Bot Honeypot hidden field */
         .hp-field { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; pointer-events: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
 
     <!-- Skip To Main Content (Keyboard Accessibility IS 5568) -->
-    <a href="#main-content" class="sr-only sr-only-focusable">דלג לתוכן המרכזי (נגישות מקלדת)</a>
+    <a href="#main-content" class="sr-only sr-only-focusable">דלג לתוכן המרכזי (ניווט מקלדת)</a>
 
     <!-- Top Announcement Bar -->
     <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
@@ -76,7 +88,7 @@
     <header class="sticky top-0 z-40 bg-[#070C18]/95 backdrop-blur-md border-b border-slate-800 text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <!-- Brand Logo Lockup (Uses logo.jpg with exact SVG fallback) -->
-            <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="מכרז פרו - דף הבית">
+            <a href="#" class="flex items-center gap-3 group" aria-label="מכרז פרו - דף הבית">
                 <div class="w-12 h-12 rounded-xl bg-[#070C18] border border-slate-700/80 flex items-center justify-center shadow-lg overflow-hidden shrink-0">
                     <img src="logo.jpg" alt="לוגו מכרז פרו" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <svg style="display:none" class="w-9 h-9" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -107,6 +119,7 @@
                 <a href="#comparison" class="hover:text-emerald-400 transition">למה אנחנו?</a>
                 <a href="#pricing" class="hover:text-emerald-400 transition">מסלולים ומחירים</a>
                 <a href="#faq" class="hover:text-emerald-400 transition">שאלות נפוצות</a>
+                <button type="button" onclick="openModal('cancelModal')" class="text-slate-400 hover:text-amber-400 transition text-xs underline">ביטול עסקה</button>
             </nav>
 
             <a href="#signup" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition transform hover:-translate-y-0.5">
@@ -123,7 +136,7 @@
                 <div class="lg:col-span-7 space-y-6 text-right">
                     <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
-                        שירות עסקי בלעדי לעצמאים, פרילנסרים וחברות (B2B)
+                        שירות מידע עסקי לעצמאים, פרילנסרים וחברות (B2B)
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] tracking-tight">
@@ -164,15 +177,15 @@
                 <div class="lg:col-span-5" id="simulator">
                     <div class="bg-slate-800/90 border-4 border-slate-700 rounded-[2.5rem] p-3 shadow-2xl max-w-md mx-auto">
                         <div class="bg-slate-900 rounded-t-3xl p-3 border-b border-slate-700">
-                            <p class="text-[11px] text-emerald-400 font-bold text-center mb-2">👇 לחץ על התחום שלך כדי לראות התראה אמיתית:</p>
-                            <div class="grid grid-cols-3 gap-1.5" role="tablist">
-                                <button onclick="switchSector('marketing')" id="tab-marketing" role="tab" aria-selected="true" class="sector-tab bg-emerald-500 text-slate-950 font-bold text-xs py-2 px-2 rounded-lg transition">
+                            <p class="text-[11px] text-emerald-400 font-bold text-center mb-2">👇 לחץ על התחום שלך לצפייה בדוגמת התראה:</p>
+                            <div class="grid grid-cols-3 gap-1.5" role="tablist" aria-label="בחירת תחום להדגמת התראה">
+                                <button type="button" onclick="switchSector('marketing')" id="tab-marketing" role="tab" aria-selected="true" class="sector-tab bg-emerald-500 text-slate-950 font-bold text-xs py-2 px-2 rounded-lg transition">
                                     שיווק ודיגיטל
                                 </button>
-                                <button onclick="switchSector('maintenance')" id="tab-maintenance" role="tab" aria-selected="false" class="sector-tab bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs py-2 px-2 rounded-lg transition">
+                                <button type="button" onclick="switchSector('maintenance')" id="tab-maintenance" role="tab" aria-selected="false" class="sector-tab bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs py-2 px-2 rounded-lg transition">
                                     אחזקה ובינוי
                                 </button>
-                                <button onclick="switchSector('training')" id="tab-training" role="tab" aria-selected="false" class="sector-tab bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs py-2 px-2 rounded-lg transition">
+                                <button type="button" onclick="switchSector('training')" id="tab-training" role="tab" aria-selected="false" class="sector-tab bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs py-2 px-2 rounded-lg transition">
                                     הדרכה וייעוץ
                                 </button>
                             </div>
@@ -181,7 +194,7 @@
                         <!-- WhatsApp Header with Embedded Brand Logo -->
                         <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-[#070C18] border border-emerald-400/50 flex items-center justify-center overflow-hidden shrink-0 shadow">
-                                <img src="logo.jpg" alt="מכרז פרו וואטסאפ" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <img src="logo.jpg" alt="לוגו מכרז פרו בוואטסאפ" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                 <svg style="display:none" class="w-7 h-7" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <g transform="translate(160, 165)">
                                         <circle cx="0" cy="0" r="105" stroke="#94A3B8" stroke-width="12"/>
@@ -200,8 +213,8 @@
                             <div class="bg-white text-slate-800 rounded-2xl rounded-tr-none p-4 shadow-md text-xs sm:text-[13px] leading-relaxed space-y-2.5 border border-slate-200/80" id="wa-message-box" aria-live="polite">
                             </div>
                             <div class="mt-3 text-center">
-                                <span class="bg-slate-900/75 text-white text-[11px] px-3 py-1 rounded-full">
-                                    ✨ כך בדיוק תיראה כל הודעה שתנחת אצלך בנייד
+                                <span class="bg-slate-900/80 text-slate-200 text-[10px] px-3 py-1 rounded-full inline-block">
+                                    * הדגמה להמחשה על בסיס פרסומים אמיתיים שנסרקו במערכת
                                 </span>
                             </div>
                         </div>
@@ -214,29 +227,29 @@
         <!-- Problem vs Solution -->
         <section id="comparison" class="py-16 lg:py-24 max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-emerald-600 font-bold text-sm uppercase tracking-wider">למה 95% מהעסקים הקטנים מפספסים כסף ממשלתי?</span>
+                <span class="text-emerald-600 font-bold text-sm uppercase tracking-wider">למה רוב העסקים הקטנים מפספסים התקשרויות עם רשויות?</span>
                 <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2">
-                    עיריות מוציאות מיליונים על ספקים קטנים בפטור ממכרז — אבל המידע קבור ב-250 אתרים מיושנים
+                    עיריות מוציאות מיליונים על ספקים קטנים בפטור ממכרז — אבל המידע מפוזר ב-250 אתרים מיושנים
                 </h2>
                 <p class="text-slate-600 mt-3 text-base sm:text-lg">
-                    כל עירייה, תאגיד מים או חברה כלכלית רשאים להזמין עבודות ב"נוהל הצעות מחיר" או "מכרז זוטר" (לרוב עד 50,000–150,000 ₪) בלי ערבות בנקאית ובלי בירוקרטיה כבדה. הבעיה? אף עצמאי לא יישב כל בוקר לחפש במאות אתרים.
+                    רשויות מקומיות, תאגידים וחברות כלכליות מזמינים עבודות שוטפות ב"נוהל הצעות מחיר" או "מכרז זוטר" ללא ערבות הגשה בנקאית. הבעיה? אף בעל עסק לא יישב כל בוקר לחפש במאות אתרים.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white border border-rose-200 rounded-3xl p-6 sm:p-8 card-shadow">
                     <div class="inline-block bg-rose-100 text-rose-700 font-bold text-xs px-3 py-1 rounded-full mb-4">
-                        ❌ השיטה הישנה (אתרי מכרזים מסורתיים / חיפוש ידני)
+                        ❌ השיטה הישנה (מנויים מסורתיים / חיפוש ידני)
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-4">הצפת מידע, חוזים שנתיים כובלים וערבויות ענק</h3>
                     <ul class="space-y-3.5 text-sm sm:text-base text-slate-600">
                         <li class="flex items-start gap-2.5">
                             <span class="text-rose-500 font-bold mt-0.5" aria-hidden="true">✖</span>
-                            <span><strong>התחייבות שנתית ב-3,500 עד 9,000 ₪</strong> מראש עוד לפני שראית עבודה אחת.</span>
+                            <span><strong>התחייבות שנתית באלפי שקלים</strong> מראש עוד לפני שראית הזדמנות רלוונטית אחת.</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <span class="text-rose-500 font-bold mt-0.5" aria-hidden="true">✖</span>
-                            <span><strong>עשרות מיילים של "זבל" ביום:</strong> קישורים למכרזי ענק שדורשים מחזורי עתק וערבויות כבדות.</span>
+                            <span><strong>עשרות מיילים לא רלוונטיים ביום:</strong> קישורים למכרזי ענק שדורשים מחזורי עתק וערבויות כבדות.</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <span class="text-rose-500 font-bold mt-0.5" aria-hidden="true">✖</span>
@@ -247,17 +260,17 @@
 
                 <div class="bg-slate-900 text-white border-2 border-emerald-500 rounded-3xl p-6 sm:p-8 shadow-xl">
                     <div class="inline-block bg-emerald-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full mb-4">
-                        ✅ המודל של מכרז פרו (סינון חכם לעסקים קטנים)
+                        ✅ המודל של מכרז פרו (סינון ממוקד לעסקים)
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">רק עבודות בגודל שלך, בלי ערבות הגשה, ישר לוואטסאפ</h3>
                     <ul class="space-y-3.5 text-sm sm:text-base text-slate-200">
                         <li class="flex items-start gap-2.5">
                             <span class="text-emerald-400 font-bold mt-0.5" aria-hidden="true">✔</span>
-                            <span><strong>סינון ערבויות מראש:</strong> פסילה אוטומטית של מכרזים הדורשים ערבות הגשה בנקאית.</span>
+                            <span><strong>סינון ערבויות מראש:</strong> סינון אוטומטי של מכרזים הדורשים ערבות הגשה בנקאית.</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <span class="text-emerald-400 font-bold mt-0.5" aria-hidden="true">✔</span>
-                            <span><strong>תקציר 5 שורות בוואטסאפ:</strong> שם הגוף, תיאור העבודה, תקציב, תנאי סף וקישור ישיר.</span>
+                            <span><strong>תקציר 5 שורות בוואטסאפ:</strong> שם הגוף, תיאור העבודה, תקציב, תנאי סף וקישור ישיר למקור.</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <span class="text-emerald-400 font-bold mt-0.5" aria-hidden="true">✔</span>
@@ -268,15 +281,15 @@
             </div>
         </section>
 
-        <!-- Pricing Section -->
+        <!-- Pricing Section (Dual Price Display: Pre-VAT + Inclusive of 18% VAT for 100% Legal Immunity) -->
         <section id="pricing" class="py-16 lg:py-24 max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-3.5 py-1.5 rounded-full">תמחור עסקי שקוף • הוצאה מוכרת ב-100% במס</span>
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-3.5 py-1.5 rounded-full">תמחור שקוף והוגן • הוצאה עסקית מוכרת</span>
                 <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-3">
-                    עבודה עירונית אחת ב-35,000 ₪ מחזירה לך שנים של מנוי
+                    בחרו את מסלול המודיעין המתאים לעסק שלכם
                 </h2>
                 <p class="text-slate-600 mt-2 text-base sm:text-lg">
-                    מתחילים ב-<strong>3 ימי ניסיון חינם</strong> בוואטסאפ ללא כרטיס אשראי. השירות מיועד לעוסקים וחברות בלבד (B2B); המחירים מוצגים לפני מע"מ כדין:
+                    מתחילים ב-<strong>3 ימי ניסיון חינם</strong> בוואטסאפ ללא כרטיס אשראי. השירות מיועד לעסקים (B2B) וללא התחייבות לתקופה:
                 </p>
             </div>
 
@@ -288,15 +301,16 @@
                         <p class="text-xs text-slate-500 mt-1">לפרילנסרים ובעלי מקצוע בתחום ממוקד</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-slate-900">299 ₪</span>
-                            <span class="text-xs text-slate-500 font-bold">/ חודש + מע"מ כחוק</span>
+                            <span class="text-xs text-slate-500 font-bold">/ לחודש + מע"מ</span>
+                            <div class="text-[11px] text-slate-400 mt-1">(352.82 ₪ כולל מע"מ כחוק)</div>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> התראות וואטסאפ לענף אחד לבחירתך</li>
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> כיסוי ארצי מלא</li>
-                            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> סינון מלא של ערבויות הגשה בנקאיות</li>
+                            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> סינון של ערבויות הגשה בנקאיות</li>
                         </ul>
                     </div>
-                    <button onclick="selectPlan('בסיסי - 299 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
+                    <button type="button" onclick="selectPlan('בסיסי - 299 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
                         התחל 3 ימי ניסיון חינם
                     </button>
                 </div>
@@ -308,10 +322,11 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-white">מסלול פרו (כולל מאגרי ספקים)</h3>
-                        <p class="text-xs text-slate-400 mt-1">כניסה לרשימות התפוצה הסגורות של העיריות</p>
+                        <p class="text-xs text-slate-400 mt-1">כניסה לרשימות הספקים של הרשויות</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-emerald-400">390 ₪</span>
-                            <span class="text-xs text-slate-400 font-bold">/ חודש + מע"מ כחוק</span>
+                            <span class="text-xs text-slate-300 font-bold">/ לחודש + מע"מ</span>
+                            <div class="text-[11px] text-slate-400 mt-1">(460.20 ₪ כולל מע"מ כחוק)</div>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-200 border-t border-slate-800 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold" aria-hidden="true">✔</span> <strong>כל מה שכלול במסלול הבסיסי</strong></li>
@@ -319,7 +334,7 @@
                             <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold" aria-hidden="true">✔</span> ערכת רישום ל-4 מאגרים פתוחים מיד</li>
                         </ul>
                     </div>
-                    <button onclick="selectPlan('פרו (כולל מאגרי ספקים) - 390 שח')" class="mt-8 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl shadow-lg shadow-emerald-500/25 transition">
+                    <button type="button" onclick="selectPlan('פרו (כולל מאגרי ספקים) - 390 שח')" class="mt-8 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl shadow-lg shadow-emerald-500/25 transition">
                         התחל 3 ימי ניסיון במסלול פרו ⬅
                     </button>
                 </div>
@@ -331,21 +346,22 @@
                         <p class="text-xs text-slate-500 mt-1">לחברות הפועלות במספר תחומים במקביל</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-slate-900">590 ₪</span>
-                            <span class="text-xs text-slate-500 font-bold">/ חודש + מע"מ כחוק</span>
+                            <span class="text-xs text-slate-500 font-bold">/ לחודש + מע"מ</span>
+                            <div class="text-[11px] text-slate-400 mt-1">(696.20 ₪ כולל מע"מ כחוק)</div>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> <strong>פתיחה מלאה של כל 3 הענפים</strong></li>
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> כל התראות מאגרי הספקים בארץ</li>
                         </ul>
                     </div>
-                    <button onclick="selectPlan('הכל כלול - 590 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
+                    <button type="button" onclick="selectPlan('הכל כלול - 590 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
                         התחל 3 ימי ניסיון חינם
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Lead Form with Cyber Security & Legal Compliance -->
+        <!-- Lead Form with Multi-Layer Anti-Bot, Anti-Injection & Legal Opt-In -->
         <section id="signup" class="py-16 bg-slate-900 text-white">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
                 <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
@@ -355,22 +371,22 @@
                         <p class="text-slate-300 text-sm mt-1">מלא פרטים לקבלת התראות ישירות לוואטסאפ ל-3 ימי התנסות חינם ללא התחייבות:</p>
                     </div>
 
-                    <form id="leadForm" onsubmit="submitLead(event)" class="space-y-4" autocomplete="on">
+                    <form id="leadForm" onsubmit="submitLead(event)" class="space-y-4" autocomplete="on" novalidate>
                         <!-- Anti-Bot Honeypot Field (Hidden from real users) -->
                         <div class="hp-field" aria-hidden="true">
-                            <label for="websiteUrl">Website</label>
+                            <label for="websiteUrl">Leave this field empty</label>
                             <input type="text" id="websiteUrl" name="websiteUrl" tabindex="-1" autocomplete="off">
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="businessName" class="block text-xs font-bold text-slate-300 mb-1.5">שם מלא / שם העסק *</label>
-                                <input type="text" id="businessName" required maxlength="80" placeholder="לדוגמה: א. כהן עבודות חשמל" 
+                                <input type="text" id="businessName" required minlength="2" maxlength="70" placeholder="לדוגמה: א. כהן עבודות חשמל" 
                                     class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
                             </div>
                             <div>
-                                <label for="whatsappPhone" class="block text-xs font-bold text-slate-300 mb-1.5">מספר נייד (וואטסאפ לקבלת התראות) *</label>
-                                <input type="tel" id="whatsappPhone" required maxlength="15" placeholder="050-1234567" pattern="[0-9\-+]{9,13}"
+                                <label for="whatsappPhone" class="block text-xs font-bold text-slate-300 mb-1.5">מספר נייד (וואטסאפ בבעלותך בלבד) *</label>
+                                <input type="tel" id="whatsappPhone" required maxlength="14" placeholder="050-1234567"
                                     class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition text-left" dir="ltr">
                             </div>
                         </div>
@@ -394,12 +410,15 @@
                             </div>
                         </div>
 
-                        <!-- Israeli Law Explicit Opt-In & Privacy Section 11 Notice -->
+                        <!-- Form Validation Error Box (Accessible ARIA Alert) -->
+                        <div id="formErrorBox" class="hidden bg-rose-950/90 border border-rose-500 text-rose-200 text-xs p-3 rounded-xl font-medium" role="alert" aria-live="assertive"></div>
+
+                        <!-- Israeli Law Explicit Opt-In, Phone Ownership Declaration & Privacy Section 11 Notice -->
                         <div class="bg-slate-900/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2.5">
                             <label class="flex items-start gap-2.5 cursor-pointer">
                                 <input type="checkbox" id="termsConsent" required class="mt-1 h-4 w-4 rounded border-slate-600 text-emerald-500 focus:ring-emerald-400 bg-slate-800 shrink-0">
                                 <span class="text-xs text-slate-300 leading-relaxed">
-                                    אני מצהיר/ה כי הנני עוסק/ת או נציג/ת עסק, קראתי ואני מסכים/ה ל<button type="button" onclick="openModal('termsModal')" class="text-emerald-400 underline hover:text-emerald-300 font-bold">תקנון ותנאי השימוש</button> ול<button type="button" onclick="openModal('privacyModal')" class="text-emerald-400 underline hover:text-emerald-300 font-bold">מדיניות הפרטיות</button>, ומאשר/ת קבלת התראות מכרזים, הצעות שירות ודברי פרסומת בוואטסאפ ובהודעות אלקטרוניות בהתאם לסעיף 30א לחוק התקשורת. ידוע לי כי אוכל להסיר את עצמי בכל עת בהשבת המילה "הסר" או במייל. *
+                                    אני מצהיר/ה כי הנני עוסק/ת או נציג/ת עסק, <strong>כי מספר הטלפון שהוזן לעיל הינו בבעלותי ובשימושי הבלעדי</strong>, קראתי ואני מסכים/ה ל<button type="button" onclick="openModal('termsModal')" class="text-emerald-400 underline hover:text-emerald-300 font-bold">תקנון ותנאי השימוש</button> ול<button type="button" onclick="openModal('privacyModal')" class="text-emerald-400 underline hover:text-emerald-300 font-bold">מדיניות הפרטיות</button>, ומאשר/ת קבלת התראות מכרזים, הודעות שירות ודברי פרסומת בוואטסאפ ובהודעות אלקטרוניות בהתאם לסעיף 30א לחוק התקשורת. ידוע לי כי אוכל להסיר את עצמי בכל עת בהשבת המילה "הסר" או במייל. *
                                 </span>
                             </label>
                             
@@ -429,13 +448,13 @@
                 <div class="bg-white border border-slate-200 rounded-2xl p-5">
                     <h3 class="font-bold text-slate-900">האם באמת לא צריך ערבות בנקאית להגשת ההצעות?</h3>
                     <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-                        נכון מאוד. המערכת מסננת החוצה כל מכרז שדורש "ערבות מציע" (ערבות בנקאית להגשת הצעה). אנו שולחים רק מכרזים זוטרים, נוהלי הצעות מחיר וקולות קוראים שבהם ההגשה היא בחינם וללא ערבות מראש.
+                        נכון מאוד. המערכת מסננת החוצה מכרזים שבהם זוהתה דרישה ל"ערבות מציע" (ערבות בנקאית להגשת הצעה). אנו מתמקדים במכרזים זוטרים, נוהלי הצעות מחיר וקולות קוראים שבהם ההגשה עצמה אינה דורשת ערבות בנקאית מראש (בחלק מהמקרים רק הזוכה במכרז נדרש להציג ביטוח או ערבות ביצוע לאחר הזכייה, ובכל מקרה חובה לוודא את התנאים המלאים במסמך המקור של הרשות).
                     </p>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-2xl p-5">
                     <h3 class="font-bold text-slate-900">איך מבטלים את המנוי?</h3>
                     <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-                        בקלות ובשקיפות מלאה: ניתן ללחוץ על הקישור הייעודי "ביטול עסקה / מנוי" בתחתית האתר, לשלוח מייל לכתובת mehrazproil@gmail.com או לשלוח הודעת וואטסאפ עם המילה "ביטול". הביטול מתבצע ללא דמי ביטול ונכנס לתוקף עד 3 ימי עסקים.
+                        בקלות ובשקיפות מלאה: ניתן ללחוץ על הקישור הייעודי "ביטול עסקה / ניתוק מנוי" בראש או בתחתית האתר, לשלוח מייל לכתובת mehrazproil@gmail.com או לשלוח הודעת וואטסאפ עם המילה "ביטול". הביטול מתבצע ללא דמי ביטול ונכנס לתוקף בתוך עד 3 ימי עסקים.
                     </p>
                 </div>
             </div>
@@ -443,7 +462,7 @@
     </main>
 
     <!-- Footer with Official Logo & Full Israeli Statutory Disclosures -->
-    <footer class="bg-[#070C18] text-slate-400 text-xs py-12 border-t border-slate-800">
+    <footer class="bg-[#070C18] text-slate-400 text-xs py-12 border-t border-slate-800 pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6 text-center">
             <!-- Brand Logo in Footer -->
             <div class="flex flex-col items-center justify-center gap-2">
@@ -462,14 +481,14 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-6 font-medium text-slate-300 pt-2">
-                <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition underline">תקנון ותנאי שימוש</button>
-                <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition underline">מדיניות פרטיות ואבטחת מידע</button>
-                <button onclick="openModal('accessibilityModal')" class="hover:text-emerald-400 transition underline">הצהרת נגישות</button>
-                <button onclick="openModal('cancelModal')" class="text-amber-400 hover:text-amber-300 font-bold transition underline">ביטול עסקה / ניתוק מנוי</button>
+                <button type="button" onclick="openModal('termsModal')" class="hover:text-emerald-400 transition underline">תקנון ותנאי שימוש</button>
+                <button type="button" onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition underline">מדיניות פרטיות ועוגיות (Cookies)</button>
+                <button type="button" onclick="openModal('accessibilityModal')" class="hover:text-emerald-400 transition underline">הצהרת נגישות</button>
+                <button type="button" onclick="openModal('cancelModal')" class="text-amber-400 hover:text-amber-300 font-bold transition underline">ביטול עסקה / ניתוק מנוי</button>
             </div>
             
             <p class="text-slate-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>הבהרה משפטית והגבלת אחריות:</strong> אתר ושירות "מכרז פרו" מופעלים ע"י עוסק מורשה <strong>א.ב שיווק</strong> ומספקים שירותי מידע ומודיעין עסקי לעוסקים וחברות בלבד (B2B). השירות אינו גוף ממשלתי או עירוני ואינו מייצג רשות מפרסמת כלשהי. התקצירים מופקים באמצעות מערכות סריקה וניתוח טכנולוגיות ומוגשים ככלי עזר ראשוני בלבד שאינו מהווה ייעוץ משפטי או מכרזי. הנוסח המחייב הינו אך ורק מסמכי המכרז המקוריים המפורסמים באתר הרשות המזמינה, והאחריות המלאה לבדיקתם טרם הגשת הצעה חלה על המציע בלבד.
+                <strong>הבהרה משפטית והגבלת אחריות:</strong> אתר ושירות "מכרז פרו" מופעלים ע"י עוסק מורשה <strong>א.ב שיווק</strong> ומספקים שירותי מידע ומודיעין עסקי לעוסקים וחברות (B2B). השירות אינו גוף ממשלתי או עירוני ואינו מייצג רשות מפרסמת כלשהי. התקצירים מופקים באמצעות מערכות סריקה וניתוח טכנולוגיות ומוגשים ככלי עזר ראשוני בלבד שאינו מהווה ייעוץ משפטי, ייעוץ מכרזי או הבטחה לזכייה או להכנסה כלשהי. הנוסח המחייב הינו אך ורק מסמכי המכרז המקוריים המפורסמים באתר הרשות המזמינה, והאחריות המלאה לבדיקתם טרם הגשת הצעה חלה על המציע בלבד.
             </p>
             
             <div class="text-[11px] text-slate-400 border-t border-slate-900 pt-4 flex flex-wrap justify-center gap-4">
@@ -482,121 +501,148 @@
         </div>
     </footer>
 
-    <!-- FLOATING ACCESSIBILITY WIDGET (Bottom-Left Fixed, Moves with Scroll, IS 5568 Compliant) -->
+    <!-- COOKIE & PRIVACY CONSENT BANNER (Israeli Privacy Protection Law Amendment 13 Compliant) -->
+    <div id="cookieBanner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-700 p-4 text-white shadow-2xl" role="region" aria-label="הודעת שימוש בעוגיות ופרטיות">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 pr-0 sm:pr-14 pl-0 sm:pl-16">
+            <p class="text-xs text-slate-300 leading-relaxed text-center sm:text-right">
+                🍪 <strong>שקיפות ופרטיות (תיקון 13 לחוק הגנת הפרטיות):</strong> אתר זה עושה שימוש בעוגיות (Cookies) ובאחסון מקומי הכרחי לצורך תפעול תקין, אבטחת מידע ושמירת התאמות נגישות. פרטים נוספים מופיעים ב<button type="button" onclick="openModal('privacyModal')" class="text-emerald-400 underline font-bold hover:text-emerald-300">מדיניות הפרטיות והעוגיות</button>.
+            </p>
+            <div class="flex items-center gap-2.5 shrink-0">
+                <button type="button" onclick="acceptCookies('essential')" class="px-3.5 py-2 rounded-xl border border-slate-600 hover:bg-slate-800 text-slate-200 text-xs font-medium transition">
+                    הכרחיות בלבד
+                </button>
+                <button type="button" onclick="acceptCookies('all')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black transition shadow">
+                    אני מאשר/ת
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING ACCESSIBILITY WIDGET (Bottom-Left Fixed, Moves with Scroll, IS 5568 AA Compliant) -->
     <div class="fixed bottom-5 left-5 z-50 flex flex-col items-start">
         <!-- Accessibility Menu Popup -->
-        <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 text-slate-900 text-xs" role="dialog" aria-label="תפריט התאמות נגישות">
+        <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 sm:w-80 text-slate-900 text-xs" role="dialog" aria-label="תפריט התאמות נגישות">
             <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
-                <span class="font-black text-sm text-slate-900">♿ כלי נגישות (ת"י 5568)</span>
-                <button onclick="toggleAccessibilityMenu()" class="text-slate-500 hover:text-slate-900 text-base font-bold px-1.5" aria-label="סגור תפריט נגישות">✕</button>
+                <span class="font-black text-sm text-slate-900">♿ כלי נגישות (ת"י 5568 AA)</span>
+                <button type="button" onclick="toggleAccessibilityMenu()" class="text-slate-500 hover:text-slate-900 text-base font-bold px-1.5" aria-label="סגור תפריט נגישות">✕</button>
             </div>
             <div class="grid grid-cols-2 gap-2">
-                <button onclick="toggleAccClass('acc-large-text')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                <button type="button" onclick="toggleAccClass('acc-large-text')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
                     <span>הגדל טקסט</span><span>A+</span>
                 </button>
-                <button onclick="toggleAccClass('acc-readable-font')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                <button type="button" onclick="toggleAccClass('acc-small-text')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                    <span>הקטן טקסט</span><span>A-</span>
+                </button>
+                <button type="button" onclick="toggleAccClass('acc-readable-font')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
                     <span>גופן קריא</span><span>א</span>
                 </button>
-                <button onclick="toggleAccClass('acc-contrast')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                <button type="button" onclick="toggleAccClass('acc-contrast')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
                     <span>גווני אפור</span><span>◐</span>
                 </button>
-                <button onclick="toggleAccClass('acc-invert')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                <button type="button" onclick="toggleAccClass('acc-invert')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
                     <span>ניגודיות הפוכה</span><span>👁️</span>
                 </button>
-                <button onclick="toggleAccClass('acc-highlight-links')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                <button type="button" onclick="toggleAccClass('acc-highlight-links')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
                     <span>הדגש קישורים</span><span>🔗</span>
                 </button>
-                <button onclick="toggleAccClass('acc-stop-animations')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
-                    <span>עצור הבהובים</span><span>⏸️</span>
+                <button type="button" onclick="toggleAccClass('acc-highlight-headings')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                    <span>הדגש כותרות</span><span>H</span>
+                </button>
+                <button type="button" onclick="toggleAccClass('acc-big-cursor')" class="p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                    <span>סמן גדול</span><span>🖱️</span>
+                </button>
+                <button type="button" onclick="toggleAccClass('acc-stop-animations')" class="col-span-2 p-2.5 border border-slate-300 rounded-xl hover:bg-slate-100 font-bold text-right flex items-center justify-between">
+                    <span>עצור אנימציות והבהובים</span><span>⏸️</span>
                 </button>
             </div>
-            <button onclick="resetAccessibility()" class="mt-2.5 w-full p-2 border border-rose-300 text-rose-700 rounded-xl hover:bg-rose-50 font-bold text-center">
+            <button type="button" onclick="resetAccessibility()" class="mt-2.5 w-full p-2 border border-rose-300 text-rose-700 rounded-xl hover:bg-rose-50 font-bold text-center">
                 🔄 איפוס הגדרות נגישות
             </button>
             <div class="mt-3 pt-2.5 border-t border-slate-200 text-center">
-                <button onclick="openModal('accessibilityModal'); toggleAccessibilityMenu();" class="text-emerald-700 underline font-bold hover:text-emerald-900">
+                <button type="button" onclick="openModal('accessibilityModal'); toggleAccessibilityMenu();" class="text-emerald-700 underline font-bold hover:text-emerald-900">
                     הצהרת נגישות מלאה ופרטי רכז
                 </button>
             </div>
         </div>
 
         <!-- Floating Accessibility Trigger Button (52x52px Compliant Size, Semi-Transparent High-Visibility Bubble) -->
-        <button onclick="toggleAccessibilityMenu()" 
-            class="w-[52px] h-[52px] rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white border-2 border-emerald-400 shadow-2xl backdrop-blur-md flex items-center justify-center text-2xl transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-400" 
-            aria-label="פתח תפריט נגישות" title="תפריט נגישות">
+        <button type="button" id="accTriggerBtn" onclick="toggleAccessibilityMenu()" 
+            class="w-[52px] h-[52px] rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white border-2 border-emerald-400 shadow-2xl backdrop-blur-md flex items-center justify-center text-2xl transition transform hover:scale-105" 
+            aria-label="פתח תפריט נגישות" aria-expanded="false" title="תפריט נגישות">
             ♿
         </button>
     </div>
 
     <!-- LEGAL MODALS (Comprehensive Israeli Law Protection) -->
 
-    <!-- 1. Cancellation Modal -->
+    <!-- 1. Cancellation Modal (Consumer Protection Law Section 13d & 14c1) -->
     <div id="cancelModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle">
         <div class="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
-                <h3 id="cancelModalTitle" class="text-lg font-black text-slate-900">הודעת ביטול עסקה / מנוי</h3>
-                <button onclick="closeModal('cancelModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold" aria-label="סגור חלון">✕</button>
+                <h3 id="cancelModalTitle" class="text-lg font-black text-slate-900">הודעת ביטול עסקה / ניתוק מנוי</h3>
+                <button type="button" onclick="closeModal('cancelModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold px-2" aria-label="סגור חלון">✕</button>
             </div>
             <div class="overflow-y-auto space-y-3.5 text-xs sm:text-sm leading-relaxed pr-1 text-slate-600">
-                <p>לנוחותך, ניתן לבטל את המנוי המתמשך בכל עת וללא דמי ביטול באמצעות מילוי הטופס להלן, או בשליחת הודעה לדוא"ל: <strong>mehrazproil@gmail.com</strong>.</p>
+                <p>בהתאם לחוק הגנת הצרכן, התשמ"א-1981, ניתן לבטל עסקת שירות מתמשכת בכל עת וללא דמי ביטול באמצעות מילוי הטופס להלן, או בשליחת הודעה לדוא"ל: <strong>mehrazproil@gmail.com</strong>.</p>
                 <form id="cancelForm" onsubmit="submitCancellation(event)" class="space-y-3">
                     <div>
                         <label for="cancelName" class="block text-xs font-bold text-slate-700 mb-1">שם מלא / שם העסק *</label>
-                        <input type="text" id="cancelName" required maxlength="80" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-emerald-600">
+                        <input type="text" id="cancelName" required maxlength="70" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-emerald-600">
                     </div>
                     <div>
                         <label for="cancelPhone" class="block text-xs font-bold text-slate-700 mb-1">מספר טלפון מנוי (וואטסאפ) *</label>
-                        <input type="tel" id="cancelPhone" required maxlength="15" placeholder="050-1234567" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none text-left focus:border-emerald-600" dir="ltr">
+                        <input type="tel" id="cancelPhone" required maxlength="14" placeholder="050-1234567" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none text-left focus:border-emerald-600" dir="ltr">
                     </div>
                     <button type="submit" id="cancelSubmitBtn" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-3 rounded-xl transition text-xs">
                         שלח בקשת ביטול מנוי 🛑
                     </button>
                 </form>
-                <div id="cancelSuccessBox" class="hidden text-center py-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs font-medium">
-                    בקשת הביטול נקלטה. להשלמת הזיהוי המיידי תועבר/י כעת לשליחת הודעת ביטול מתועדת למוקד השירות. המנוי יופסק תוך 3 ימי עסקים ללא כל חיוב נוסף.
+                <div id="cancelSuccessBox" class="hidden text-center py-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs font-medium" role="status">
+                    בקשת הביטול נקלטה. להשלמת התיעוד המיידי נפתחת כעת הודעת דוא"ל מתועדת למוקד השירות. המנוי יופסק בתוך עד 3 ימי עסקים ללא כל חיוב נוסף.
                 </div>
             </div>
-            <button onclick="closeModal('cancelModal')" class="mt-4 w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs">סגור</button>
+            <button type="button" onclick="closeModal('cancelModal')" class="mt-4 w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
         </div>
     </div>
 
-    <!-- 2. Terms of Use Modal (Exhaustive B2B Contract) -->
+    <!-- 2. Terms of Use Modal (Exhaustive B2B Contract & Liability Shield) -->
     <div id="termsModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
                 <h3 id="termsModalTitle" class="text-lg font-black text-slate-900">תקנון ותנאי שימוש בשירות "מכרז פרו"</h3>
-                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold" aria-label="סגור חלון">✕</button>
+                <button type="button" onclick="closeModal('termsModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold px-2" aria-label="סגור חלון">✕</button>
             </div>
             <div class="overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-600 pl-2">
-                <p><strong>1. מבוא וזהות המפעיל:</strong> אתר ושירות "מכרז פרו" (להלן: "השירות" או "האתר") מופעלים ומנוהלים על ידי עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל ליצירת קשר: <strong>mehrazproil@gmail.com</strong> (להלן: "המפעיל"). השימוש באתר וההרשמה לשירות מהווים הסכמה מלאה ובלתי חוזרת לתנאי תקנון זה.</p>
-                <p><strong>2. שירות עסקי בלבד (B2B) ותמחור:</strong> השירות מיועד אך ורק לעוסקים מורשים, עוסקים פטורים, תאגידים, חברות ובעלי מקצוע לצרכים מסחריים ועסקיים, ואינו מיועד לצרכנים פרטיים. בהתאם לכך, כל המחירים המוצגים באתר נקובים בשקלים חדשים ואינם כוללים מע"מ, אשר יתווסף כחוק לכל עסקה כנגד חשבונית מס כדין.</p>
-                <p><strong>3. מהות השירות ותקופת הניסיון:</strong> השירות מספק התראות ותקצירים אוטומטיים של מכרזים, בקשות להצעות מחיר, קולות קוראים ומאגרי ספקים פומביים באמצעות הודעות וואטסאפ. המשתמש זכאי ל-3 ימי ניסיון חינם ללא צורך במסירת פרטי אמצעי תשלום מראש. בתום 3 ימי הניסיון, המשך קבלת השירות מותנה בהסדרת מנוי חודשי בתשלום לפי המסלול שנבחר.</p>
-                <p><strong>4. היעדר ייצוג רשמי והגבלת אחריות מוחלטת:</strong> המפעיל אינו גוף ממשלתי, מוניציפלי או ציבורי ואינו פועל מטעם שום רשות מפרסמת. התקצירים הנשלחים מופקים באמצעות כלי סריקה ובינה מלאכותית (AI) המסכמים מסמכים פומביים, והם עלולים לכלול אי-דיוקים, שגיאות פענוח, השמטות או עיכובים. השירות אינו מהווה ייעוץ משפטי, ייעוץ מכרזי או תחליף לבדיקה מקצועית. <strong>חלה חובה מוחלטת ובלעדית על המשתמש לקרוא ולבדוק את מסמכי המכרז המקוריים והמלאים באתר הרשות המפרסמת טרם הגשת הצעה או הסתמכות כלשהי.</strong> המפעיל לא יישא בכל אחריות לנזק ישיר או עקיף, אובדן הכנסה, אובדן זכייה, פסילת הצעה או הוצאות שהוציא המשתמש.</p>
-                <p><strong>5. זמינות השירות וצדדים שלישיים:</strong> אספקת ההתראות תלויה בשירותי צד שלישי (לרבות רשת האינטרנט, שרתי הרשויות המקומיות ואפליקציית WhatsApp / Meta). המפעיל אינו מתחייב לכמות מינימלית של מכרזים ביום או לזמינות רציפה של 100%, ולא תהיה למשתמש כל טענה בגין תקלות תקשורת או שינויים במדיניות צדדים שלישיים.</p>
-                <p><strong>6. קניין רוחני ואיסור הפצה:</strong> המנוי הינו אישי לעסק הנרשם בלבד. חל איסור מוחלט להעתיק, להפיץ מחדש, למכור או להעביר באופן שיטתי את מאגר ההתראות והתקצירים לצדדים שלישיים או לקבוצות תפוצה אחרות.</p>
-                <p><strong>7. מדיניות ביטול עסקה והפסקת מנוי:</strong> המשתמש רשאי לבטל את המנוי החודשי בכל עת וללא דמי ביטול באמצעות טופס "ביטול עסקה" באתר, בפנייה לדוא"ל mehrazproil@gmail.com או בהודעת וואטסאפ. הביטול ייכנס לתוקפו בתוך 3 ימי עסקים ממועד מסירת ההודעה, וממועד זה יופסקו החיובים העתידיים.</p>
-                <p><strong>8. סמכות שיפוט:</strong> על תקנון זה יחולו דיני מדינת ישראל בלבד. סמכות השיפוט הבלעדית בכל מחלוקת הנוגעת לשירות תהא נתונה לבתי המשפט המוסמכים בישראל.</p>
+                <p><strong>1. מבוא וזהות המפעיל:</strong> אתר ושירות "מכרז פרו" (להלן: "השירות" או "האתר") מופעלים ומנוהלים על ידי עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל ליצירת קשר: <strong>mehrazproil@gmail.com</strong> (להלן: "המפעיל"). השימוש באתר וההרשמה לשירות מהווים הסכמה מלאה לתנאי תקנון זה.</p>
+                <p><strong>2. שירות עסקי (B2B) ותמחור:</strong> השירות מיועד לעוסקים מורשים, עוסקים פטורים, תאגידים, חברות ובעלי מקצוע לצרכים עסקיים ומסחריים. למען השקיפות המלאה, לצד כל מחיר לפני מע"מ מוצג באתר גם המחיר המלא כולל מע"מ כחוק (18%).</p>
+                <p><strong>3. מהות השירות ותקופת הניסיון:</strong> השירות מספק התראות ותקצירים אוטומטיים של מכרזים, בקשות להצעות מחיר, קולות קוראים ומאגרי ספקים פומביים באמצעות הודעות וואטסאפ. המשתמש זכאי ל-3 ימי ניסיון חינם ללא מסירת אמצעי תשלום מראש. בתום 3 ימי הניסיון, המשך קבלת השירות מותנה בהסדרת מנוי חודשי בתשלום לפי המסלול שנבחר.</p>
+                <p><strong>4. הצהרת בעלות על מספר הטלפון ואיסור הזנת פרטי צד שלישי:</strong> המשתמש מצהיר ומתחייב כי מספר הטלפון הנייד שהוזן בטופס ההרשמה שייך לו ונמצא בשימושו החוקי. חל איסור מוחלט להזין מספרי טלפון של צדדים שלישיים ללא הרשאתם, והמשתמש יישא במלוא האחריות המשפטית והנזיקית בגין כל רישום כוזב.</p>
+                <p><strong>5. היעדר ייצוג רשמי והגבלת אחריות מוחלטת:</strong> המפעיל אינו גוף ממשלתי, מוניציפלי או ציבורי ואינו פועל מטעם שום רשות מפרסמת. התקצירים הנשלחים מופקים באמצעות כלי סריקה ובינה מלאכותית (AI) המסכמים מסמכים פומביים, והם עלולים לכלול אי-דיוקים, שגיאות פענוח, השמטות של תנאי סף או ערבויות, או עיכובים. השירות מסופק כמות שהוא (AS-IS) ואינו מהווה ייעוץ משפטי, ייעוץ מכרזי או תחליף לבדיקה מקצועית. <strong>חלה חובה מוחלטת ובלעדית על המשתמש לקרוא ולבדוק את מסמכי המכרז המקוריים והמלאים באתר הרשות המפרסמת טרם הגשת הצעה או הסתמכות כלשהי.</strong> המפעיל לא יישא בכל אחריות לנזק ישיר או עקיף, אובדן הכנסה, אובדן זכייה, פסילת הצעה או הוצאות שהוציא המשתמש. במקרה שבו ייקבע על ידי ערכאה מוסמכת כי קיימת אחריות כלשהי, לא תעלה אחריות המפעיל על גובה דמי המנוי ששילם הלקוח בפועל בחודש שקדם לאירוע.</p>
+                <p><strong>6. זמינות השירות וצדדים שלישיים:</strong> אספקת ההתראות תלויה בשירותי צד שלישי (לרבות רשת האינטרנט, שרתי הרשויות המקומיות ואפליקציית WhatsApp). המפעיל אינו מתחייב לכמות מינימלית של מכרזים ביום או לזמינות רציפה ללא תקלות.</p>
+                <p><strong>7. קניין רוחני ואיסור הפצה מסחרית:</strong> המנוי הינו אישי לעסק הנרשם בלבד. חל איסור להעתיק, להפיץ מחדש, למכור או להעביר באופן שיטתי את מאגר ההתראות והתקצירים לצדדים שלישיים או לקבוצות תפוצה אחרות.</p>
+                <p><strong>8. מדיניות ביטול עסקה והפסקת מנוי:</strong> המשתמש רשאי לבטל את המנוי בכל עת וללא דמי ביטול באמצעות כפתור "ביטול עסקה" באתר, בפנייה לדוא"ל mehrazproil@gmail.com או בהודעת וואטסאפ. הביטול ייכנס לתוקפו בתוך עד 3 ימי עסקים ממועד מסירת ההודעה, וממועד זה יופסקו החיובים העתידיים.</p>
+                <p><strong>9. דין וסמכות שיפוט:</strong> על תקנון זה יחולו דיני מדינת ישראל בלבד.</p>
             </div>
-            <button onclick="closeModal('termsModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">קראתי והבנתי – סגור חלון</button>
+            <button type="button" onclick="closeModal('termsModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">קראתי והבנתי – סגור חלון</button>
         </div>
     </div>
 
-    <!-- 3. Privacy Policy Modal (Compliant with Amendment 13 to the Israeli Privacy Protection Law) -->
+    <!-- 3. Privacy & Cookie Policy Modal (Compliant with Amendment 13 to the Israeli Privacy Protection Law) -->
     <div id="privacyModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
-                <h3 id="privacyModalTitle" class="text-lg font-black text-slate-900">מדיניות פרטיות ואבטחת מידע (חוק הגנת הפרטיות ותיקון 13)</h3>
-                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold" aria-label="סגור חלון">✕</button>
+                <h3 id="privacyModalTitle" class="text-lg font-black text-slate-900">מדיניות פרטיות ועוגיות (חוק הגנת הפרטיות ותיקון 13)</h3>
+                <button type="button" onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold px-2" aria-label="סגור חלון">✕</button>
             </div>
             <div class="overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-600 pl-2">
-                <p><strong>1. זהות בעל השליטה במאגר המידע:</strong> בעל השליטה במאגר המידע הנאסף באתר זה הינו עוסק מורשה <strong>א.ב שיווק</strong>, כתובת דוא"ל לפניות בנושא פרטיות: <strong>mehrazproil@gmail.com</strong>.</p>
-                <p><strong>2. סוגי המידע הנאסף ומקורו (הודעה לפי סעיף 11):</strong> אנו אוספים אך ורק מידע שנמסר על ידך מרצונך החופשי בטופס ההרשמה: שם מלא/שם העסק, מספר טלפון נייד (וואטסאפ), תחום פעילות עסקי והמסלול המבוקש. לא חלה עליך כל חובה חוקית למסור מידע זה, אולם ללא מסירתו לא נוכל לספק לך את שירות ההתראות בוואטסאפ.</p>
-                <p><strong>3. מטרות השימוש במידע:</strong> המידע משמש אך ורק למטרות הבאות: (א) שליחת התראות מכרזים מותאמות לתחום עיסוקך; (ב) ניהול קשר עם הלקוח, תמיכה, גבייה והנפקת חשבוניות; (ג) משלוח עדכונים והודעות שירות או פרסומת בכפוף להסכמתך המפורשת לפי סעיף 30א לחוק התקשורת.</p>
-                <p><strong>4. העברת מידע לצדדים שלישיים ואבטחת מידע:</strong> אנו מיישמים אמצעי אבטחת מידע קפדניים בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. איננו מוכרים, משכירים או מעבירים את פרטיך האישיים לשום גורם מסחרי חיצוני. המידע נשמר ומעובד אך ורק באמצעות ספקי תשתית ענן מאובטחים (כגון מערכות אוטומציה וממשקי שליחת הודעות וואטסאפ) הנדרשים ישירות לצורך תפעול השירות.</p>
-                <p><strong>5. עוגיות (Cookies) ונתונים טכניים:</strong> האתר עשוי לעשות שימוש בנתונים טכניים בסיסיים (כגון אחסון מקומי בדפדפן לצורך שמירת העדפות נגישות ומניעת שליחות כפולות של בוטים) שאינם מזהים אותך אישית.</p>
-                <p><strong>6. זכויות נושא המידע (עיון, תיקון, מחיקה והסרה):</strong> בהתאם לחוק הגנת הפרטיות, הינך זכאי/ת לעיין במידע המוחזק אודותיך במאגר, ולבקש לתקנו או למחקו כליל ("הזכות להישכח") בכל עת, על ידי פנייה בכתב לכתובת הדוא"ל <strong>mehrazproil@gmail.com</strong> או בהשבת המילה "הסר" בוואטסאפ, והבקשה תבוצע בהקדם האפשרי.</p>
+                <p><strong>1. זהות בעל השליטה במאגר המידע:</strong> בעל השליטה במאגר המידע הנאסף באתר זה הינו עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל לפניות בנושא פרטיות: <strong>mehrazproil@gmail.com</strong>.</p>
+                <p><strong>2. סוגי המידע הנאסף ומקורו (הודעה לפי סעיף 11):</strong> אנו אוספים מידע שנמסר על ידך מרצונך החופשי בטופס ההרשמה: שם מלא/שם העסק, מספר טלפון נייד (וואטסאפ), תחום פעילות עסקי, המסלול המבוקש וחותמת זמן של מתן ההסכמה. לא חלה עליך חובה חוקית למסור מידע זה, אולם ללא מסירתו לא נוכל לספק לך את שירות ההתראות בוואטסאפ.</p>
+                <p><strong>3. מטרות השימוש במידע:</strong> המידע משמש אך ורק למטרות הבאות: (א) שליחת התראות מכרזים מותאמות לתחום עיסוקך; (ב) ניהול קשר עם הלקוח, תמיכה, גבייה והנפקת חשבוניות כדין; (ג) משלוח עדכונים והודעות שירות או פרסומת בכפוף להסכמתך המפורשת לפי סעיף 30א לחוק התקשורת.</p>
+                <p><strong>4. העברת מידע לצדדים שלישיים ואבטחת מידע:</strong> אנו מיישמים אמצעי אבטחת מידע בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. איננו מוכרים או משכירים את פרטיך האישיים לגורמים מסחריים. המידע מעובד באמצעות ספקי תשתית ענן מאובטחים (כגון מערכות אוטומציה וממשקי שליחת הודעות וואטסאפ, לרבות שרתים מחוץ לישראל בעלי תקני אבטחה מחמירים) הנדרשים ישירות לצורך תפעול השירות.</p>
+                <p><strong>5. מדיניות עוגיות (Cookies) ואחסון מקומי (Local Storage):</strong> האתר משתמש באחסון מקומי בדפדפן לצרכים תפעוליים והכרחיים בלבד: שמירת העדפות הנגישות של המשתמש, שמירת אישור באנר העוגיות, והגנה מפני הצפות בוטים (Rate-Limiting). באפשרותך למחוק או לחסום עוגיות בכל עת דרך הגדרות הדפדפן שלך.</p>
+                <p><strong>6. תקופת שמירת המידע וזכויות נושא המידע (עיון, תיקון ומחיקה):</strong> המידע נשמר כל עוד המנוי פעיל או כנדרש על פי דין לצורכי תיעוד ודיווח. בהתאם לחוק הגנת הפרטיות, הינך זכאי/ת לעיין במידע המוחזק אודותיך במאגר, ולבקש לתקנו או למחקו כליל בכל עת, באמצעות פנייה לכתובת הדוא"ל <strong>mehrazproil@gmail.com</strong> או בהשבת המילה "הסר" בוואטסאפ.</p>
             </div>
-            <button onclick="closeModal('privacyModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
+            <button type="button" onclick="closeModal('privacyModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
         </div>
     </div>
 
@@ -605,25 +651,25 @@
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
                 <h3 id="accModalTitle" class="text-lg font-black text-slate-900">הצהרת נגישות (תקן ישראלי ת"י 5568 ברמה AA)</h3>
-                <button onclick="closeModal('accessibilityModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold" aria-label="סגור חלון">✕</button>
+                <button type="button" onclick="closeModal('accessibilityModal')" class="text-slate-400 hover:text-slate-700 text-xl font-bold px-2" aria-label="סגור חלון">✕</button>
             </div>
             <div class="overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-600 pl-2">
                 <p>אנו ב"מכרז פרו" (א.ב שיווק) רואים חשיבות עליונה במתן שירות שוויוני, מכבד ונגיש לכלל האזרחים ובעלי העסקים, לרבות אנשים עם מוגבלות.</p>
                 <p><strong>1. תקינה ורמת נגישות האתר:</strong> אתר זה הונגש בהתאם להוראות סימן ג' לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ועומד בדרישות התקן הישראלי ת"י 5568 להנגשת תכנים באינטרנט ברמת <strong>AA</strong>, המבוסס על הנחיות WCAG 2.1 הבינלאומיות.</p>
                 <p><strong>2. התאמות הנגישות שבוצעו באתר:</strong>
                     <br>• כפתור ותפריט נגישות צף קבוע בפינה השמאלית התחתונה של המסך הנע עם הגלילה.
-                    <br>• תמיכה מלאה בניווט באמצעות מקלדת בלבד (Tab, Shift+Tab, Enter, Esc) וכפתור "דלג לתוכן המרכזי".
-                    <br>• תגיות סמנטיות ותגיות ARIA מותאמות לתוכנות קוראות מסך (כגון NVDA ו-JAWS).
-                    <br>• אפשרות להגדלת גופן, מעבר לגופן קריא, שינוי ניגודיות (גווני אפור / ניגודיות הפוכה), הדגשת קישורים ועצירת אנימציות/הבהובים.
+                    <br>• תמיכה מלאה בניווט באמצעות מקלדת בלבד (Tab, Shift+Tab, Enter, Esc), מסגרת פוקוס בולטת וכפתור "דלג לתוכן המרכזי".
+                    <br>• תגיות סמנטיות ותגיות ARIA מותאמות לתוכנות קוראות מסך (NVDA / JAWS).
+                    <br>• אפשרות להגדלת והקטנת גופן, מעבר לגופן קריא, גווני אפור, ניגודיות הפוכה, הדגשת קישורים וכותרות, הגדלת סמן העכבר ועצירת אנימציות.
                 </p>
-                <p><strong>3. הסדרי נגישות פיזיים (היעדר קבלת קהל):</strong> <u>השירות הינו שירות טכנולוגי דיגיטלי ומקוון בלבד (Online). לעסק אין משרדים הפתוחים לקהל, אין סניפים פיזיים ואין קבלת קהל פרונטלית.</u> כלל השירותים והתמיכה ניתנים באמצעים דיגיטליים מונגשים (וואטסאפ ודוא"ל).</p>
-                <p><strong>4. פרטי רכז/אחראי נגישות ודרכי פנייה:</strong> אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם בקשה להתאמת נגישות במידע הנשלח, אנא פנו אלינו ונשמח לטפל בכך במלוא תשומת הלב:
+                <p><strong>3. הסדרי נגישות פיזיים (היעדר קבלת קהל):</strong> <u>השירות הינו שירות טכנולוגי דיגיטלי ומקוון בלבד (Online). לעסק אין משרדים הפתוחים לקהל, אין סניפים פיזיים ואין קבלת קהל פרונטלית.</u> כלל השירותים והתמיכה ניתנים באמצעים דיגיטליים מונגשים בכתב (וואטסאפ ודוא"ל).</p>
+                <p><strong>4. פרטי אחראי נגישות ודרכי פנייה:</strong> אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם בקשה להתאמת נגישות, אנא פנו אלינו ונשמח לטפל בכך בהקדם:
                     <br>• אחראי נגישות: הנהלת א.ב שיווק
-                    <br>• דוא"ל פניות נגישות: <strong>mehrazproil@gmail.com</strong>
+                    <br>• דוא"ל פניות נגישות (מענה כתוב ונגיש): <strong>mehrazproil@gmail.com</strong>
                 </p>
                 <p class="text-[11px] text-slate-400">תאריך עדכון ההצהרה: נובמבר 2026.</p>
             </div>
-            <button onclick="closeModal('accessibilityModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
+            <button type="button" onclick="closeModal('accessibilityModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
         </div>
     </div>
 
@@ -631,11 +677,32 @@
     <script>
         // הדבק כאן את כתובת ה-Webhook של Make (אין להדביק כאן מפתחות API פרטיים לעולם!)
         const MAKE_WEBHOOK_URL = "YOUR_MAKE_WEBHOOK_URL_HERE";
+        const PAGE_LOAD_TIME = Date.now();
+        let lastFocusedElement = null;
 
-        // XSS Input Sanitizer (Strips HTML/Script injection characters)
+        // Strict XSS & Spreadsheet Formula Injection Sanitizer
         function sanitizeInput(str) {
             if (!str) return "";
-            return String(str).replace(/[<>'"/\\`;]/g, "").trim();
+            // 1. Strip HTML/Script injection characters
+            let cleaned = String(str).replace(/[<>'"/\\`;|{}]/g, "").trim();
+            // 2. Prevent CSV / Google Sheets Formula Injection (blocks leading =, +, -, @)
+            cleaned = cleaned.replace(/^[=+\-@]+/, "");
+            return cleaned;
+        }
+
+        // Strict Israeli Mobile Phone Validator (050, 051, 052, 053, 054, 055, 058)
+        function isValidIsraeliMobile(phoneStr) {
+            const digits = phoneStr.replace(/\D/g, '');
+            // Local format 05XXXXXXXX (10 digits) or International 9725XXXXXXXX (12 digits)
+            if (/^05[0123458]\d{7}$/.test(digits)) {
+                // Block fake repetitive numbers like 0500000000 or 0521111111
+                if (/^05\d(\d)\1{6}$/.test(digits)) return false;
+                return true;
+            }
+            if (/^9725[0123458]\d{7}$/.test(digits)) {
+                return true;
+            }
+            return false;
         }
 
         const sectorMessages = {
@@ -683,87 +750,160 @@
 
         switchSector('marketing');
 
-        // Modal Handlers with ESC Key Support for Accessibility
+        // Accessible Modal Handlers with Focus Restoration & ESC Support
         function openModal(id) {
+            lastFocusedElement = document.activeElement;
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                const closeBtn = modal.querySelector('button');
+                if (closeBtn) closeBtn.focus();
             }
         }
 
         function closeModal(id) {
             const modal = document.getElementById(id);
-            if (modal) {
+            if (modal && !modal.classList.contains('hidden')) {
                 modal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
+                if (lastFocusedElement) lastFocusedElement.focus();
             }
         }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 ['cancelModal', 'termsModal', 'privacyModal', 'accessibilityModal'].forEach(closeModal);
-                document.getElementById('accMenu').classList.add('hidden');
+                const accMenu = document.getElementById('accMenu');
+                if (accMenu && !accMenu.classList.contains('hidden')) {
+                    toggleAccessibilityMenu();
+                }
             }
         });
 
-        // Accessibility Functions
+        // Accessibility Functions with LocalStorage Persistence
         function toggleAccessibilityMenu() {
-            document.getElementById('accMenu').classList.toggle('hidden');
+            const menu = document.getElementById('accMenu');
+            const btn = document.getElementById('accTriggerBtn');
+            const isHidden = menu.classList.toggle('hidden');
+            if (btn) btn.setAttribute('aria-expanded', (!isHidden).toString());
         }
 
         function toggleAccClass(className) {
+            if (className === 'acc-large-text') document.body.classList.remove('acc-small-text');
+            if (className === 'acc-small-text') document.body.classList.remove('acc-large-text');
             document.body.classList.toggle(className);
         }
 
         function resetAccessibility() {
             document.body.classList.remove(
                 'acc-large-text',
+                'acc-small-text',
                 'acc-contrast',
                 'acc-invert',
                 'acc-highlight-links',
+                'acc-highlight-headings',
                 'acc-readable-font',
+                'acc-big-cursor',
                 'acc-stop-animations'
             );
         }
 
-        // Secure Lead Submission with Anti-Bot Honeypot & Rate-Limiting
+        // Cookie Consent Banner Initialization
+        function initCookieBanner() {
+            try {
+                const consent = localStorage.getItem('tp_cookie_consent');
+                if (!consent) {
+                    document.getElementById('cookieBanner').classList.remove('hidden');
+                }
+            } catch (e) {}
+        }
+
+        function acceptCookies(level) {
+            try {
+                localStorage.setItem('tp_cookie_consent', JSON.stringify({
+                    level: level,
+                    timestamp: new Date().toISOString()
+                }));
+            } catch (e) {}
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        initCookieBanner();
+
+        function showFormError(msg) {
+            const box = document.getElementById('formErrorBox');
+            box.innerText = '⚠️ ' + msg;
+            box.classList.remove('hidden');
+        }
+
+        // Secure Lead Submission with Anti-Bot Time-Trap, Honeypot, Strict Phone Check & Legal Audit Log
         let isSubmitting = false;
         async function submitLead(e) {
             e.preventDefault();
             if (isSubmitting) return;
+            document.getElementById('formErrorBox').classList.add('hidden');
 
             // 1. Check Anti-Bot Honeypot
             const honeypot = document.getElementById('websiteUrl').value;
-            if (honeypot) {
-                return; // Silently drop automated bot submissions
-            }
+            if (honeypot) return;
 
-            // 2. Check Client Rate-Limit (Prevent spam flooding)
-            const lastSubmit = sessionStorage.getItem('tp_last_submit');
-            if (lastSubmit && Date.now() - parseInt(lastSubmit, 10) < 30000) {
-                alert('הבקשה שלך כבר נשלחה ונקלטה במערכת.');
+            // 2. Check Anti-Bot Time-Trap (Blocks automated scripts submitting in < 2.5 seconds)
+            if (Date.now() - PAGE_LOAD_TIME < 2500) {
+                showFormError('נא להמתין מספר שניות ולנסות שוב.');
                 return;
             }
 
-            isSubmitting = true;
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = 'מחבר אותך למערכת... ⏳';
-            btn.disabled = true;
+            // 3. Validate Inputs & Israeli Mobile Format
+            const cleanName = sanitizeInput(document.getElementById('businessName').value);
+            const rawPhoneInput = sanitizeInput(document.getElementById('whatsappPhone').value);
+            const consentChecked = document.getElementById('termsConsent').checked;
 
-            let rawPhone = sanitizeInput(document.getElementById('whatsappPhone').value).replace(/\D/g, '');
-            if (rawPhone.startsWith('0')) {
-                rawPhone = '972' + rawPhone.substring(1);
+            if (cleanName.length < 2) {
+                showFormError('נא להזין שם מלא או שם עסק תקין.');
+                return;
             }
 
+            if (!isValidIsraeliMobile(rawPhoneInput)) {
+                showFormError('נא להזין מספר טלפון נייד ישראלי תקין (לדוגמה: 050-1234567).');
+                return;
+            }
+
+            if (!consentChecked) {
+                showFormError('חובה לאשר את תקנון תנאי השימוש והסכמת קבלת ההתראות כדי להירשם.');
+                return;
+            }
+
+            // 4. Check Client Rate-Limit (Prevent spam flooding via both LocalStorage & SessionStorage)
+            try {
+                const lastSubmit = localStorage.getItem('tp_last_submit') || sessionStorage.getItem('tp_last_submit');
+                if (lastSubmit && Date.now() - parseInt(lastSubmit, 10) < 60000) {
+                    showFormError('הבקשה שלך כבר נשלחה ונקלטה במערכת בדקה האחרונה.');
+                    return;
+                }
+            } catch (err) {}
+
+            isSubmitting = true;
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = 'מחבר אותך למערכת המאובטחת... ⏳';
+            btn.disabled = true;
+
+            let normalizedPhone = rawPhoneInput.replace(/\D/g, '');
+            if (normalizedPhone.startsWith('0')) {
+                normalizedPhone = '972' + normalizedPhone.substring(1);
+            }
+
+            const nowIso = new Date().toISOString();
             const payload = {
-                name: sanitizeInput(document.getElementById('businessName').value),
-                phone: rawPhone,
+                name: cleanName,
+                phone: normalizedPhone,
                 category: sanitizeInput(document.getElementById('categorySelect').value),
                 plan: sanitizeInput(document.getElementById('planSelect').value),
                 status: 'ניסיון 3 ימים',
                 termsAccepted: true,
-                signupDate: new Date().toISOString().split('T')[0]
+                consentVersion: 'Terms_v2.4_IL_B2B_SpamLaw30A',
+                consentTimestamp: nowIso,
+                signupDate: nowIso.split('T')[0]
             };
 
             try {
@@ -774,7 +914,10 @@
                         body: JSON.stringify(payload)
                     });
                 }
-                sessionStorage.setItem('tp_last_submit', Date.now().toString());
+                try {
+                    localStorage.setItem('tp_last_submit', Date.now().toString());
+                    sessionStorage.setItem('tp_last_submit', Date.now().toString());
+                } catch (e) {}
                 document.getElementById('leadForm').classList.add('hidden');
                 document.getElementById('successBox').classList.remove('hidden');
             } catch (err) {
@@ -785,7 +928,7 @@
             }
         }
 
-        // Statutory Cancellation Handler (Sends via Webhook if connected + Opens documented email notice)
+        // Statutory Cancellation Handler
         async function submitCancellation(e) {
             e.preventDefault();
             const cancelName = sanitizeInput(document.getElementById('cancelName').value);
@@ -809,7 +952,6 @@
             document.getElementById('cancelForm').classList.add('hidden');
             document.getElementById('cancelSuccessBox').classList.remove('hidden');
 
-            // Trigger documented mailto backup so the customer & business have immediate written proof
             const subject = encodeURIComponent(`בקשת ביטול מנוי - ${cancelName}`);
             const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cancelPhone}\nתודה.`);
             setTimeout(() => {
