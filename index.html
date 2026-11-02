@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Strict Cyber Security Headers (Anti-XSS, Anti-Clickjacking, Referrer Shield) -->
+    <!-- Strict Cyber Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
@@ -70,13 +70,12 @@
             position: fixed; top: 12px; right: 12px; z-index: 10000;
             background: #10B981; color: #070C18; padding: 12px 20px; font-weight: 900; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        /* Anti-Bot Honeypot hidden field */
         .hp-field { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; pointer-events: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
 
-    <!-- Skip To Main Content (Keyboard Accessibility IS 5568) -->
+    <!-- Skip To Main Content -->
     <a href="#main-content" class="sr-only sr-only-focusable">דלג לתוכן המרכזי (ניווט מקלדת)</a>
 
     <!-- Top Announcement Bar -->
@@ -84,10 +83,9 @@
         📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
     </div>
 
-    <!-- Sticky Header with Official Logo -->
+    <!-- Sticky Header -->
     <header class="sticky top-0 z-40 bg-[#070C18]/95 backdrop-blur-md border-b border-slate-800 text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <!-- Brand Logo Lockup (Uses logo.jpg with exact SVG fallback) -->
             <a href="#" class="flex items-center gap-3 group" aria-label="מכרז פרו - דף הבית">
                 <div class="w-12 h-12 rounded-xl bg-[#070C18] border border-slate-700/80 flex items-center justify-center shadow-lg overflow-hidden shrink-0">
                     <img src="logo.jpg" alt="לוגו מכרז פרו" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -136,7 +134,7 @@
                 <div class="lg:col-span-7 space-y-6 text-right">
                     <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
-                        שירות מידע עסקי לעצמאים, פרילנסרים וחברות (B2B)
+                        שירות מידע עסקי לעצמאים, פרילנסרים וחברות
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] tracking-tight">
@@ -173,7 +171,7 @@
                     </div>
                 </div>
 
-                <!-- Simulator with Official Logo in WhatsApp Header -->
+                <!-- Simulator -->
                 <div class="lg:col-span-5" id="simulator">
                     <div class="bg-slate-800/90 border-4 border-slate-700 rounded-[2.5rem] p-3 shadow-2xl max-w-md mx-auto">
                         <div class="bg-slate-900 rounded-t-3xl p-3 border-b border-slate-700">
@@ -191,7 +189,7 @@
                             </div>
                         </div>
 
-                        <!-- WhatsApp Header with Embedded Brand Logo -->
+                        <!-- WhatsApp Header -->
                         <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-[#070C18] border border-emerald-400/50 flex items-center justify-center overflow-hidden shrink-0 shadow">
                                 <img src="logo.jpg" alt="לוגו מכרז פרו בוואטסאפ" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -281,33 +279,33 @@
             </div>
         </section>
 
-        <!-- Pricing Section (Dual Price Display: Pre-VAT + Inclusive of 18% VAT for 100% Legal Immunity) -->
+        <!-- Pricing Section (Flat Final Prices - Inclusive of VAT) -->
         <section id="pricing" class="py-16 lg:py-24 max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-3.5 py-1.5 rounded-full">תמחור שקוף והוגן • הוצאה עסקית מוכרת</span>
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-3.5 py-1.5 rounded-full">תמחור שקוף וקבוע • מחיר סופי כולל מע"מ כחוק</span>
                 <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-3">
                     בחרו את מסלול המודיעין המתאים לעסק שלכם
                 </h2>
                 <p class="text-slate-600 mt-2 text-base sm:text-lg">
-                    מתחילים ב-<strong>3 ימי ניסיון חינם</strong> בוואטסאפ ללא כרטיס אשראי. השירות מיועד לעסקים (B2B) וללא התחייבות לתקופה:
+                    מתחילים ב-<strong>3 ימי ניסיון חינם</strong> בוואטסאפ ללא כרטיס אשראי. מחירים פשוטים וסופיים ללא אותיות קטנות:
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 items-stretch">
-                <!-- Basic -->
+                <!-- Basic Plan -->
                 <div class="bg-white border border-slate-200 rounded-3xl p-7 flex flex-col justify-between card-shadow">
                     <div>
                         <h3 class="text-lg font-bold text-slate-900">מסלול בסיסי (ענף יחיד)</h3>
                         <p class="text-xs text-slate-500 mt-1">לפרילנסרים ובעלי מקצוע בתחום ממוקד</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-slate-900">299 ₪</span>
-                            <span class="text-xs text-slate-500 font-bold">/ לחודש + מע"מ</span>
-                            <div class="text-[11px] text-slate-400 mt-1">(352.82 ₪ כולל מע"מ כחוק)</div>
+                            <span class="text-xs text-slate-600 font-bold">/ לחודש (כולל מע"מ)</span>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> התראות וואטסאפ לענף אחד לבחירתך</li>
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> כיסוי ארצי מלא</li>
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> סינון של ערבויות הגשה בנקאיות</li>
+                            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> חשבונית מס מוכרת כהוצאה עסקית</li>
                         </ul>
                     </div>
                     <button type="button" onclick="selectPlan('בסיסי - 299 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
@@ -315,7 +313,7 @@
                     </button>
                 </div>
 
-                <!-- Pro -->
+                <!-- Pro Plan -->
                 <div class="bg-slate-900 text-white border-2 border-amber-400 rounded-3xl p-7 flex flex-col justify-between shadow-2xl relative transform md:-translate-y-3">
                     <div class="absolute -top-3.5 right-6 bg-amber-400 text-slate-950 font-black text-xs px-3.5 py-1 rounded-full shadow">
                         ⭐ המסלול המבוקש ביותר
@@ -325,13 +323,13 @@
                         <p class="text-xs text-slate-400 mt-1">כניסה לרשימות הספקים של הרשויות</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-emerald-400">390 ₪</span>
-                            <span class="text-xs text-slate-300 font-bold">/ לחודש + מע"מ</span>
-                            <div class="text-[11px] text-slate-400 mt-1">(460.20 ₪ כולל מע"מ כחוק)</div>
+                            <span class="text-xs text-slate-300 font-bold">/ לחודש (כולל מע"מ)</span>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-200 border-t border-slate-800 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold" aria-hidden="true">✔</span> <strong>כל מה שכלול במסלול הבסיסי</strong></li>
                             <li class="flex items-center gap-2"><span class="text-amber-400 font-bold" aria-hidden="true">★</span> <strong>התראות על פתיחת מאגרי ספקים ויועצים</strong></li>
                             <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold" aria-hidden="true">✔</span> ערכת רישום ל-4 מאגרים פתוחים מיד</li>
+                            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold" aria-hidden="true">✔</span> חשבונית מס מוכרת כהוצאה עסקית</li>
                         </ul>
                     </div>
                     <button type="button" onclick="selectPlan('פרו (כולל מאגרי ספקים) - 390 שח')" class="mt-8 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl shadow-lg shadow-emerald-500/25 transition">
@@ -339,19 +337,20 @@
                     </button>
                 </div>
 
-                <!-- All Inclusive -->
+                <!-- All Inclusive Plan -->
                 <div class="bg-white border border-slate-200 rounded-3xl p-7 flex flex-col justify-between card-shadow">
                     <div>
                         <h3 class="text-lg font-bold text-slate-900">הכל כלול (חברות וקבלנים)</h3>
                         <p class="text-xs text-slate-500 mt-1">לחברות הפועלות במספר תחומים במקביל</p>
                         <div class="my-6">
                             <span class="text-4xl font-black text-slate-900">590 ₪</span>
-                            <span class="text-xs text-slate-500 font-bold">/ לחודש + מע"מ</span>
-                            <div class="text-[11px] text-slate-400 mt-1">(696.20 ₪ כולל מע"מ כחוק)</div>
+                            <span class="text-xs text-slate-600 font-bold">/ לחודש (כולל מע"מ)</span>
                         </div>
                         <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-5">
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> <strong>פתיחה מלאה של כל 3 הענפים</strong></li>
                             <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> כל התראות מאגרי הספקים בארץ</li>
+                            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> חיבור עד 2 מספרי וואטסאפ בעסק</li>
+                            <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold" aria-hidden="true">✔</span> חשבונית מס מוכרת כהוצאה עסקית</li>
                         </ul>
                     </div>
                     <button type="button" onclick="selectPlan('הכל כלול - 590 שח')" class="mt-8 w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3.5 rounded-xl transition">
@@ -361,7 +360,7 @@
             </div>
         </section>
 
-        <!-- Lead Form with Multi-Layer Anti-Bot, Anti-Injection & Legal Opt-In -->
+        <!-- Lead Form -->
         <section id="signup" class="py-16 bg-slate-900 text-white">
             <div class="max-w-3xl mx-auto px-4 sm:px-6">
                 <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
@@ -372,7 +371,6 @@
                     </div>
 
                     <form id="leadForm" onsubmit="submitLead(event)" class="space-y-4" autocomplete="on" novalidate>
-                        <!-- Anti-Bot Honeypot Field (Hidden from real users) -->
                         <div class="hp-field" aria-hidden="true">
                             <label for="websiteUrl">Leave this field empty</label>
                             <input type="text" id="websiteUrl" name="websiteUrl" tabindex="-1" autocomplete="off">
@@ -403,17 +401,15 @@
                             <div>
                                 <label for="planSelect" class="block text-xs font-bold text-slate-300 mb-1.5">מסלול מועדף בתום הניסיון</label>
                                 <select id="planSelect" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
-                                    <option value="פרו (כולל מאגרי ספקים) - 390 שח">⭐ מסלול פרו - 390 ₪ + מע"מ</option>
-                                    <option value="בסיסי - 299 שח">מסלול בסיסי - 299 ₪ + מע"מ</option>
-                                    <option value="הכל כלול - 590 שח">מסלול הכל כלול - 590 ₪ + מע"מ</option>
+                                    <option value="פרו (כולל מאגרי ספקים) - 390 שח">⭐ מסלול פרו - 390 ₪ (כולל מע"מ)</option>
+                                    <option value="בסיסי - 299 שח">מסלול בסיסי - 299 ₪ (כולל מע"מ)</option>
+                                    <option value="הכל כלול - 590 שח">מסלול הכל כלול - 590 ₪ (כולל מע"מ)</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Form Validation Error Box (Accessible ARIA Alert) -->
                         <div id="formErrorBox" class="hidden bg-rose-950/90 border border-rose-500 text-rose-200 text-xs p-3 rounded-xl font-medium" role="alert" aria-live="assertive"></div>
 
-                        <!-- Israeli Law Explicit Opt-In, Phone Ownership Declaration & Privacy Section 11 Notice -->
                         <div class="bg-slate-900/80 border border-slate-700/80 rounded-xl p-3.5 space-y-2.5">
                             <label class="flex items-start gap-2.5 cursor-pointer">
                                 <input type="checkbox" id="termsConsent" required class="mt-1 h-4 w-4 rounded border-slate-600 text-emerald-500 focus:ring-emerald-400 bg-slate-800 shrink-0">
@@ -461,10 +457,9 @@
         </section>
     </main>
 
-    <!-- Footer with Official Logo & Full Israeli Statutory Disclosures -->
+    <!-- Footer -->
     <footer class="bg-[#070C18] text-slate-400 text-xs py-12 border-t border-slate-800 pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6 text-center">
-            <!-- Brand Logo in Footer -->
             <div class="flex flex-col items-center justify-center gap-2">
                 <div class="w-14 h-14 rounded-2xl bg-[#070C18] border border-slate-800 flex items-center justify-center overflow-hidden shadow-md">
                     <img src="logo.jpg" alt="לוגו מכרז פרו" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -488,7 +483,7 @@
             </div>
             
             <p class="text-slate-500 max-w-3xl mx-auto leading-relaxed">
-                <strong>הבהרה משפטית והגבלת אחריות:</strong> אתר ושירות "מכרז פרו" מופעלים ע"י עוסק מורשה <strong>א.ב שיווק</strong> ומספקים שירותי מידע ומודיעין עסקי לעוסקים וחברות (B2B). השירות אינו גוף ממשלתי או עירוני ואינו מייצג רשות מפרסמת כלשהי. התקצירים מופקים באמצעות מערכות סריקה וניתוח טכנולוגיות ומוגשים ככלי עזר ראשוני בלבד שאינו מהווה ייעוץ משפטי, ייעוץ מכרזי או הבטחה לזכייה או להכנסה כלשהי. הנוסח המחייב הינו אך ורק מסמכי המכרז המקוריים המפורסמים באתר הרשות המזמינה, והאחריות המלאה לבדיקתם טרם הגשת הצעה חלה על המציע בלבד.
+                <strong>הבהרה משפטית והגבלת אחריות:</strong> אתר ושירות "מכרז פרו" מופעלים ע"י עוסק מורשה <strong>א.ב שיווק</strong> ומספקים שירותי מידע ומודיעין עסקי לעוסקים וחברות (B2B). השירות אינו גוף ממשלתי או עירוני ואינו מייצג רשות מפרסמת כלשהי. התקצירים מופקים באמצעות מערכות סריקה וניתוח טכנולוגיות ומוגשים ככלי עזר ראשוני בלבד שאינו מהווה ייעוץ משפטי, ייעוץ מכרזי או הבטחה לזכייה או להכנסה כלשהי. כל המחירים באתר הינם סופיים וכוללים מע"מ כדין. הנוסח המחייב הינו אך ורק מסמכי המכרז המקוריים המפורסמים באתר הרשות המזמינה, והאחריות המלאה לבדיקתם טרם הגשת הצעה חלה על המציע בלבד.
             </p>
             
             <div class="text-[11px] text-slate-400 border-t border-slate-900 pt-4 flex flex-wrap justify-center gap-4">
@@ -501,7 +496,7 @@
         </div>
     </footer>
 
-    <!-- COOKIE & PRIVACY CONSENT BANNER (Israeli Privacy Protection Law Amendment 13 Compliant) -->
+    <!-- COOKIE & PRIVACY CONSENT BANNER -->
     <div id="cookieBanner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-700 p-4 text-white shadow-2xl" role="region" aria-label="הודעת שימוש בעוגיות ופרטיות">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 pr-0 sm:pr-14 pl-0 sm:pl-16">
             <p class="text-xs text-slate-300 leading-relaxed text-center sm:text-right">
@@ -518,9 +513,8 @@
         </div>
     </div>
 
-    <!-- FLOATING ACCESSIBILITY WIDGET (Bottom-Left Fixed, Moves with Scroll, IS 5568 AA Compliant) -->
+    <!-- FLOATING ACCESSIBILITY WIDGET -->
     <div class="fixed bottom-5 left-5 z-50 flex flex-col items-start">
-        <!-- Accessibility Menu Popup -->
         <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 sm:w-80 text-slate-900 text-xs" role="dialog" aria-label="תפריט התאמות נגישות">
             <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
                 <span class="font-black text-sm text-slate-900">♿ כלי נגישות (ת"י 5568 AA)</span>
@@ -565,7 +559,6 @@
             </div>
         </div>
 
-        <!-- Floating Accessibility Trigger Button (52x52px Compliant Size, Semi-Transparent High-Visibility Bubble) -->
         <button type="button" id="accTriggerBtn" onclick="toggleAccessibilityMenu()" 
             class="w-[52px] h-[52px] rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white border-2 border-emerald-400 shadow-2xl backdrop-blur-md flex items-center justify-center text-2xl transition transform hover:scale-105" 
             aria-label="פתח תפריט נגישות" aria-expanded="false" title="תפריט נגישות">
@@ -573,9 +566,9 @@
         </button>
     </div>
 
-    <!-- LEGAL MODALS (Comprehensive Israeli Law Protection) -->
+    <!-- LEGAL MODALS -->
 
-    <!-- 1. Cancellation Modal (Consumer Protection Law Section 13d & 14c1) -->
+    <!-- 1. Cancellation Modal -->
     <div id="cancelModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle">
         <div class="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -605,7 +598,7 @@
         </div>
     </div>
 
-    <!-- 2. Terms of Use Modal (Exhaustive B2B Contract & Liability Shield) -->
+    <!-- 2. Terms of Use Modal -->
     <div id="termsModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -614,10 +607,10 @@
             </div>
             <div class="overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-600 pl-2">
                 <p><strong>1. מבוא וזהות המפעיל:</strong> אתר ושירות "מכרז פרו" (להלן: "השירות" או "האתר") מופעלים ומנוהלים על ידי עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל ליצירת קשר: <strong>mehrazproil@gmail.com</strong> (להלן: "המפעיל"). השימוש באתר וההרשמה לשירות מהווים הסכמה מלאה לתנאי תקנון זה.</p>
-                <p><strong>2. שירות עסקי (B2B) ותמחור:</strong> השירות מיועד לעוסקים מורשים, עוסקים פטורים, תאגידים, חברות ובעלי מקצוע לצרכים עסקיים ומסחריים. למען השקיפות המלאה, לצד כל מחיר לפני מע"מ מוצג באתר גם המחיר המלא כולל מע"מ כחוק (18%).</p>
+                <p><strong>2. שירות עסקי (B2B) ותמחור:</strong> השירות מיועד לעוסקים מורשים, עוסקים פטורים, תאגידים, חברות ובעלי מקצוע לצרכים עסקיים ומסחריים. כל המחירים המצוינים באתר הינם סופיים וכוללים מע"מ כחוק. לכל תשלום מונפקת חשבונית מס/קבלה כדין.</p>
                 <p><strong>3. מהות השירות ותקופת הניסיון:</strong> השירות מספק התראות ותקצירים אוטומטיים של מכרזים, בקשות להצעות מחיר, קולות קוראים ומאגרי ספקים פומביים באמצעות הודעות וואטסאפ. המשתמש זכאי ל-3 ימי ניסיון חינם ללא מסירת אמצעי תשלום מראש. בתום 3 ימי הניסיון, המשך קבלת השירות מותנה בהסדרת מנוי חודשי בתשלום לפי המסלול שנבחר.</p>
-                <p><strong>4. הצהרת בעלות על מספר הטלפון ואיסור הזנת פרטי צד שלישי:</strong> המשתמש מצהיר ומתחייב כי מספר הטלפון הנייד שהוזן בטופס ההרשמה שייך לו ונמצא בשימושו החוקי. חל איסור מוחלט להזין מספרי טלפון של צדדים שלישיים ללא הרשאתם, והמשתמש יישא במלוא האחריות המשפטית והנזיקית בגין כל רישום כוזב.</p>
-                <p><strong>5. היעדר ייצוג רשמי והגבלת אחריות מוחלטת:</strong> המפעיל אינו גוף ממשלתי, מוניציפלי או ציבורי ואינו פועל מטעם שום רשות מפרסמת. התקצירים הנשלחים מופקים באמצעות כלי סריקה ובינה מלאכותית (AI) המסכמים מסמכים פומביים, והם עלולים לכלול אי-דיוקים, שגיאות פענוח, השמטות של תנאי סף או ערבויות, או עיכובים. השירות מסופק כמות שהוא (AS-IS) ואינו מהווה ייעוץ משפטי, ייעוץ מכרזי או תחליף לבדיקה מקצועית. <strong>חלה חובה מוחלטת ובלעדית על המשתמש לקרוא ולבדוק את מסמכי המכרז המקוריים והמלאים באתר הרשות המפרסמת טרם הגשת הצעה או הסתמכות כלשהי.</strong> המפעיל לא יישא בכל אחריות לנזק ישיר או עקיף, אובדן הכנסה, אובדן זכייה, פסילת הצעה או הוצאות שהוציא המשתמש. במקרה שבו ייקבע על ידי ערכאה מוסמכת כי קיימת אחריות כלשהי, לא תעלה אחריות המפעיל על גובה דמי המנוי ששילם הלקוח בפועל בחודש שקדם לאירוע.</p>
+                <p><strong>4. הצהרת בעלות על מספר הטלפון:</strong> המשתמש מצהיר ומתחייב כי מספר הטלפון הנייד שהוזן בטופס ההרשמה שייך לו ונמצא בשימושו החוקי. חל איסור מוחלט להזין מספרי טלפון של צדדים שלישיים ללא הרשאתם, והמשתמש יישא במלוא האחריות המשפטית בגין כל רישום כוזב.</p>
+                <p><strong>5. היעדר ייצוג רשמי והגבלת אחריות מוחלטת:</strong> המפעיל אינו גוף ממשלתי, מוניציפלי או ציבורי ואינו פועל מטעם שום רשות מפרסמת. התקצירים הנשלחים מופקים באמצעות כלי סריקה ובינה מלאכותית (AI) המסכמים מסמכים פומביים, והם עלולים לכלול אי-דיוקים, שגיאות פענוח, השמטות של תנאי סף או ערבויות, או עיכובים. השירות מסופק כמות שהוא (AS-IS) ואינו מהווה ייעוץ משפטי, ייעוץ מכרזי או תחליף לבדיקה מקצועית. <strong>חלה חובה מוחלטת ובלעדית על המשתמש לקרוא ולבדוק את מסמכי המכרז המקוריים והמלאים באתר הרשות המפרסמת טרם הגשת הצעה או הסתמכות כלשהי.</strong> המפעיל לא יישא בכל אחריות לנזק ישיר או עקיף, אובדן הכנסה, אובדן זכייה, פסילת הצעה או הוצאות שהוציא המשתמש.</p>
                 <p><strong>6. זמינות השירות וצדדים שלישיים:</strong> אספקת ההתראות תלויה בשירותי צד שלישי (לרבות רשת האינטרנט, שרתי הרשויות המקומיות ואפליקציית WhatsApp). המפעיל אינו מתחייב לכמות מינימלית של מכרזים ביום או לזמינות רציפה ללא תקלות.</p>
                 <p><strong>7. קניין רוחני ואיסור הפצה מסחרית:</strong> המנוי הינו אישי לעסק הנרשם בלבד. חל איסור להעתיק, להפיץ מחדש, למכור או להעביר באופן שיטתי את מאגר ההתראות והתקצירים לצדדים שלישיים או לקבוצות תפוצה אחרות.</p>
                 <p><strong>8. מדיניות ביטול עסקה והפסקת מנוי:</strong> המשתמש רשאי לבטל את המנוי בכל עת וללא דמי ביטול באמצעות כפתור "ביטול עסקה" באתר, בפנייה לדוא"ל mehrazproil@gmail.com או בהודעת וואטסאפ. הביטול ייכנס לתוקפו בתוך עד 3 ימי עסקים ממועד מסירת ההודעה, וממועד זה יופסקו החיובים העתידיים.</p>
@@ -627,7 +620,7 @@
         </div>
     </div>
 
-    <!-- 3. Privacy & Cookie Policy Modal (Compliant with Amendment 13 to the Israeli Privacy Protection Law) -->
+    <!-- 3. Privacy Policy Modal -->
     <div id="privacyModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -638,15 +631,15 @@
                 <p><strong>1. זהות בעל השליטה במאגר המידע:</strong> בעל השליטה במאגר המידע הנאסף באתר זה הינו עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל לפניות בנושא פרטיות: <strong>mehrazproil@gmail.com</strong>.</p>
                 <p><strong>2. סוגי המידע הנאסף ומקורו (הודעה לפי סעיף 11):</strong> אנו אוספים מידע שנמסר על ידך מרצונך החופשי בטופס ההרשמה: שם מלא/שם העסק, מספר טלפון נייד (וואטסאפ), תחום פעילות עסקי, המסלול המבוקש וחותמת זמן של מתן ההסכמה. לא חלה עליך חובה חוקית למסור מידע זה, אולם ללא מסירתו לא נוכל לספק לך את שירות ההתראות בוואטסאפ.</p>
                 <p><strong>3. מטרות השימוש במידע:</strong> המידע משמש אך ורק למטרות הבאות: (א) שליחת התראות מכרזים מותאמות לתחום עיסוקך; (ב) ניהול קשר עם הלקוח, תמיכה, גבייה והנפקת חשבוניות כדין; (ג) משלוח עדכונים והודעות שירות או פרסומת בכפוף להסכמתך המפורשת לפי סעיף 30א לחוק התקשורת.</p>
-                <p><strong>4. העברת מידע לצדדים שלישיים ואבטחת מידע:</strong> אנו מיישמים אמצעי אבטחת מידע בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. איננו מוכרים או משכירים את פרטיך האישיים לגורמים מסחריים. המידע מעובד באמצעות ספקי תשתית ענן מאובטחים (כגון מערכות אוטומציה וממשקי שליחת הודעות וואטסאפ, לרבות שרתים מחוץ לישראל בעלי תקני אבטחה מחמירים) הנדרשים ישירות לצורך תפעול השירות.</p>
-                <p><strong>5. מדיניות עוגיות (Cookies) ואחסון מקומי (Local Storage):</strong> האתר משתמש באחסון מקומי בדפדפן לצרכים תפעוליים והכרחיים בלבד: שמירת העדפות הנגישות של המשתמש, שמירת אישור באנר העוגיות, והגנה מפני הצפות בוטים (Rate-Limiting). באפשרותך למחוק או לחסום עוגיות בכל עת דרך הגדרות הדפדפן שלך.</p>
-                <p><strong>6. תקופת שמירת המידע וזכויות נושא המידע (עיון, תיקון ומחיקה):</strong> המידע נשמר כל עוד המנוי פעיל או כנדרש על פי דין לצורכי תיעוד ודיווח. בהתאם לחוק הגנת הפרטיות, הינך זכאי/ת לעיין במידע המוחזק אודותיך במאגר, ולבקש לתקנו או למחקו כליל בכל עת, באמצעות פנייה לכתובת הדוא"ל <strong>mehrazproil@gmail.com</strong> או בהשבת המילה "הסר" בוואטסאפ.</p>
+                <p><strong>4. העברת מידע לצדדים שלישיים ואבטחת מידע:</strong> אנו מיישמים אמצעי אבטחת מידע בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. איננו מוכרים או משכירים את פרטיך האישיים לגורמים מסחריים. המידע מעובד באמצעות ספקי תשתית ענן מאובטחים הנדרשים ישירות לצורך תפעול השירות.</p>
+                <p><strong>5. מדיניות עוגיות (Cookies) ואחסון מקומי:</strong> האתר משתמש באחסון מקומי בדפדפן לצרכים תפעוליים והכרחיים בלבד: שמירת העדפות הנגישות, שמירת אישור באנר העוגיות והגנה מפני בוטים. באפשרותך למחוק או לחסום עוגיות דרך הגדרות הדפדפן שלך.</p>
+                <p><strong>6. זכויות נושא המידע:</strong> בהתאם לחוק הגנת הפרטיות, הינך זכאי/ת לעיין במידע המוחזק אודותיך במאגר, ולבקש לתקנו או למחקו כליל בכל עת, באמצעות פנייה לכתובת הדוא"ל <strong>mehrazproil@gmail.com</strong> או בהשבת המילה "הסר" בוואטסאפ.</p>
             </div>
             <button type="button" onclick="closeModal('privacyModal')" class="mt-4 w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs">סגור חלון</button>
         </div>
     </div>
 
-    <!-- 4. Accessibility Declaration Modal (IS 5568 AA + Physical Exemption) -->
+    <!-- 4. Accessibility Declaration Modal -->
     <div id="accessibilityModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="accModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -659,11 +652,11 @@
                 <p><strong>2. התאמות הנגישות שבוצעו באתר:</strong>
                     <br>• כפתור ותפריט נגישות צף קבוע בפינה השמאלית התחתונה של המסך הנע עם הגלילה.
                     <br>• תמיכה מלאה בניווט באמצעות מקלדת בלבד (Tab, Shift+Tab, Enter, Esc), מסגרת פוקוס בולטת וכפתור "דלג לתוכן המרכזי".
-                    <br>• תגיות סמנטיות ותגיות ARIA מותאמות לתוכנות קוראות מסך (NVDA / JAWS).
+                    <br>• תגיות סמנטיות ותגיות ARIA מותאמות לתוכנות קוראות מסך.
                     <br>• אפשרות להגדלת והקטנת גופן, מעבר לגופן קריא, גווני אפור, ניגודיות הפוכה, הדגשת קישורים וכותרות, הגדלת סמן העכבר ועצירת אנימציות.
                 </p>
                 <p><strong>3. הסדרי נגישות פיזיים (היעדר קבלת קהל):</strong> <u>השירות הינו שירות טכנולוגי דיגיטלי ומקוון בלבד (Online). לעסק אין משרדים הפתוחים לקהל, אין סניפים פיזיים ואין קבלת קהל פרונטלית.</u> כלל השירותים והתמיכה ניתנים באמצעים דיגיטליים מונגשים בכתב (וואטסאפ ודוא"ל).</p>
-                <p><strong>4. פרטי אחראי נגישות ודרכי פנייה:</strong> אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם בקשה להתאמת נגישות, אנא פנו אלינו ונשמח לטפל בכך בהקדם:
+                <p><strong>4. פרטי אחראי נגישות ודרכי פנייה:</strong> אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם בקשה להתאמת נגישות, אנא פנו אלינו:
                     <br>• אחראי נגישות: הנהלת א.ב שיווק
                     <br>• דוא"ל פניות נגישות (מענה כתוב ונגיש): <strong>mehrazproil@gmail.com</strong>
                 </p>
@@ -673,29 +666,22 @@
         </div>
     </div>
 
-    <!-- Secure Interactive Scripts -->
+    <!-- Scripts -->
     <script>
-        // הדבק כאן את כתובת ה-Webhook של Make (אין להדביק כאן מפתחות API פרטיים לעולם!)
         const MAKE_WEBHOOK_URL = "YOUR_MAKE_WEBHOOK_URL_HERE";
         const PAGE_LOAD_TIME = Date.now();
         let lastFocusedElement = null;
 
-        // Strict XSS & Spreadsheet Formula Injection Sanitizer
         function sanitizeInput(str) {
             if (!str) return "";
-            // 1. Strip HTML/Script injection characters
             let cleaned = String(str).replace(/[<>'"/\\`;|{}]/g, "").trim();
-            // 2. Prevent CSV / Google Sheets Formula Injection (blocks leading =, +, -, @)
             cleaned = cleaned.replace(/^[=+\-@]+/, "");
             return cleaned;
         }
 
-        // Strict Israeli Mobile Phone Validator (050, 051, 052, 053, 054, 055, 058)
         function isValidIsraeliMobile(phoneStr) {
             const digits = phoneStr.replace(/\D/g, '');
-            // Local format 05XXXXXXXX (10 digits) or International 9725XXXXXXXX (12 digits)
             if (/^05[0123458]\d{7}$/.test(digits)) {
-                // Block fake repetitive numbers like 0500000000 or 0521111111
                 if (/^05\d(\d)\1{6}$/.test(digits)) return false;
                 return true;
             }
@@ -708,8 +694,8 @@
         const sectorMessages = {
             marketing: `
                 <div class="font-bold text-slate-900">🚨 החברה העירונית רחובות לתרבות: <span class="text-emerald-700">צילום, עריכה והפקת סרטוני Reels ותדמית</span></div>
-                <div>💰 <strong>היקף:</strong> אומדן תקציב עד 48,000 ₪ + מע"מ</div>
-                <div>✅ <strong>תנאים:</strong> ללא ערבות הגשה! דרוש עוסק מורשה, ניהול ספרים ו-2 שנות ניסיון</div>
+                <div>💰 <strong>היקף:</strong> אומדן תקציב עד 48,000 ₪</div>
+                <div>✅ <strong>תנאים:</strong> ללא ערבות הגשה! דרוש עוסק מורשה/חברה, ניהול ספרים ו-2 שנות ניסיון</div>
                 <div>⏳ <strong>הגשה:</strong> במייל ישיר לכתובת הרשות</div>
                 <div class="text-sky-600 underline font-medium">📄 למסמך המקור והגשה: ironit-rehovot.co.il</div>
             `,
@@ -750,7 +736,6 @@
 
         switchSector('marketing');
 
-        // Accessible Modal Handlers with Focus Restoration & ESC Support
         function openModal(id) {
             lastFocusedElement = document.activeElement;
             const modal = document.getElementById(id);
@@ -781,7 +766,6 @@
             }
         });
 
-        // Accessibility Functions with LocalStorage Persistence
         function toggleAccessibilityMenu() {
             const menu = document.getElementById('accMenu');
             const btn = document.getElementById('accTriggerBtn');
@@ -809,7 +793,6 @@
             );
         }
 
-        // Cookie Consent Banner Initialization
         function initCookieBanner() {
             try {
                 const consent = localStorage.getItem('tp_cookie_consent');
@@ -837,24 +820,20 @@
             box.classList.remove('hidden');
         }
 
-        // Secure Lead Submission with Anti-Bot Time-Trap, Honeypot, Strict Phone Check & Legal Audit Log
         let isSubmitting = false;
         async function submitLead(e) {
             e.preventDefault();
             if (isSubmitting) return;
             document.getElementById('formErrorBox').classList.add('hidden');
 
-            // 1. Check Anti-Bot Honeypot
             const honeypot = document.getElementById('websiteUrl').value;
             if (honeypot) return;
 
-            // 2. Check Anti-Bot Time-Trap (Blocks automated scripts submitting in < 2.5 seconds)
             if (Date.now() - PAGE_LOAD_TIME < 2500) {
                 showFormError('נא להמתין מספר שניות ולנסות שוב.');
                 return;
             }
 
-            // 3. Validate Inputs & Israeli Mobile Format
             const cleanName = sanitizeInput(document.getElementById('businessName').value);
             const rawPhoneInput = sanitizeInput(document.getElementById('whatsappPhone').value);
             const consentChecked = document.getElementById('termsConsent').checked;
@@ -874,7 +853,6 @@
                 return;
             }
 
-            // 4. Check Client Rate-Limit (Prevent spam flooding via both LocalStorage & SessionStorage)
             try {
                 const lastSubmit = localStorage.getItem('tp_last_submit') || sessionStorage.getItem('tp_last_submit');
                 if (lastSubmit && Date.now() - parseInt(lastSubmit, 10) < 60000) {
@@ -901,7 +879,7 @@
                 plan: sanitizeInput(document.getElementById('planSelect').value),
                 status: 'ניסיון 3 ימים',
                 termsAccepted: true,
-                consentVersion: 'Terms_v2.4_IL_B2B_SpamLaw30A',
+                consentVersion: 'Terms_v2.5_IL_B2B_IncVAT',
                 consentTimestamp: nowIso,
                 signupDate: nowIso.split('T')[0]
             };
@@ -928,7 +906,6 @@
             }
         }
 
-        // Statutory Cancellation Handler
         async function submitCancellation(e) {
             e.preventDefault();
             const cancelName = sanitizeInput(document.getElementById('cancelName').value);
