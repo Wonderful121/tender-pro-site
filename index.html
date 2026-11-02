@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Strict Cyber Security Headers -->
+    <!-- Strict Cyber Security Headers (With Make US2 Webhook Permissions) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cdn.tailwindcss.com https://*.make.com https://*.eu1.make.celonis.com https://*.eu2.make.celonis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cdn.tailwindcss.com https://*.make.com https://*.us2.make.com https://hook.us2.make.com https://*.eu1.make.celonis.com https://*.eu2.make.celonis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     
     <title>מכרז פרו | מודיעין מכרזים ועבודות לעסקים ישירות לוואטסאפ</title>
     <meta name="description" content="מערכת מודיעין מכרזים זוטרים, בקשות להצעות מחיר ומאגרי ספקים ללא ערבות הגשה בנקאית לעסקים, פרילנסרים וחברות בישראל – ישירות לוואטסאפ.">
@@ -50,12 +50,10 @@
         .card-shadow {
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
         }
-        /* Strict IS 5568 AA Keyboard Focus Visibility */
         *:focus-visible {
             outline: 3px solid #F59E0B !important;
             outline-offset: 2px !important;
         }
-        /* Accessibility Standard IS 5568 AA Classes */
         .acc-large-text { font-size: 118% !important; }
         .acc-small-text { font-size: 90% !important; }
         .acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
@@ -75,7 +73,6 @@
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
 
-    <!-- Skip To Main Content -->
     <a href="#main-content" class="sr-only sr-only-focusable">דלג לתוכן המרכזי (ניווט מקלדת)</a>
 
     <!-- Top Announcement Bar -->
@@ -83,7 +80,7 @@
         📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
     </div>
 
-    <!-- Sticky Header -->
+    <!-- Header -->
     <header class="sticky top-0 z-40 bg-[#070C18]/95 backdrop-blur-md border-b border-slate-800 text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group" aria-label="מכרז פרו - דף הבית">
@@ -189,7 +186,7 @@
                             </div>
                         </div>
 
-                        <!-- WhatsApp Header -->
+                        <!-- WhatsApp Bar -->
                         <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-[#070C18] border border-emerald-400/50 flex items-center justify-center overflow-hidden shrink-0 shadow">
                                 <img src="logo.jpg" alt="לוגו מכרז פרו בוואטסאפ" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -279,7 +276,7 @@
             </div>
         </section>
 
-        <!-- Pricing Section (Flat Final Prices - Inclusive of VAT) -->
+        <!-- Pricing Section (Flat Final Prices) -->
         <section id="pricing" class="py-16 lg:py-24 max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-3.5 py-1.5 rounded-full">תמחור שקוף וקבוע • מחיר סופי כולל מע"מ כחוק</span>
@@ -496,7 +493,7 @@
         </div>
     </footer>
 
-    <!-- COOKIE & PRIVACY CONSENT BANNER -->
+    <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-700 p-4 text-white shadow-2xl" role="region" aria-label="הודעת שימוש בעוגיות ופרטיות">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 pr-0 sm:pr-14 pl-0 sm:pl-16">
             <p class="text-xs text-slate-300 leading-relaxed text-center sm:text-right">
@@ -513,7 +510,7 @@
         </div>
     </div>
 
-    <!-- FLOATING ACCESSIBILITY WIDGET -->
+    <!-- Accessibility Widget -->
     <div class="fixed bottom-5 left-5 z-50 flex flex-col items-start">
         <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 sm:w-80 text-slate-900 text-xs" role="dialog" aria-label="תפריט התאמות נגישות">
             <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
@@ -566,8 +563,7 @@
         </button>
     </div>
 
-    <!-- LEGAL MODALS -->
-
+    <!-- Modals -->
     <!-- 1. Cancellation Modal -->
     <div id="cancelModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle">
         <div class="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
@@ -598,7 +594,7 @@
         </div>
     </div>
 
-    <!-- 2. Terms of Use Modal -->
+    <!-- 2. Terms Modal -->
     <div id="termsModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -620,7 +616,7 @@
         </div>
     </div>
 
-    <!-- 3. Privacy Policy Modal -->
+    <!-- 3. Privacy Modal -->
     <div id="privacyModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -639,7 +635,7 @@
         </div>
     </div>
 
-    <!-- 4. Accessibility Declaration Modal -->
+    <!-- 4. Accessibility Modal -->
     <div id="accessibilityModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="accModalTitle">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col p-6 text-slate-800 text-right shadow-2xl">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -666,9 +662,10 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts with Connected Make Webhook -->
     <script>
-        const MAKE_WEBHOOK_URL = "YOUR_MAKE_WEBHOOK_URL_HERE";
+        // Make.com Live Webhook Endpoint
+        const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/6egce4fmc3v5xr2j96e1wkpthxccwsdo";
         const PAGE_LOAD_TIME = Date.now();
         let lastFocusedElement = null;
 
@@ -885,13 +882,11 @@
             };
 
             try {
-                if (MAKE_WEBHOOK_URL && !MAKE_WEBHOOK_URL.includes("YOUR_MAKE_WEBHOOK")) {
-                    await fetch(MAKE_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                }
+                await fetch(MAKE_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
                 try {
                     localStorage.setItem('tp_last_submit', Date.now().toString());
                     sessionStorage.setItem('tp_last_submit', Date.now().toString());
@@ -912,18 +907,16 @@
             const cancelPhone = sanitizeInput(document.getElementById('cancelPhone').value);
 
             try {
-                if (MAKE_WEBHOOK_URL && !MAKE_WEBHOOK_URL.includes("YOUR_MAKE_WEBHOOK")) {
-                    await fetch(MAKE_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            action: 'CANCEL_SUBSCRIPTION',
-                            name: cancelName,
-                            phone: cancelPhone,
-                            requestDate: new Date().toISOString()
-                        })
-                    });
-                }
+                await fetch(MAKE_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'CANCEL_SUBSCRIPTION',
+                        name: cancelName,
+                        phone: cancelPhone,
+                        requestDate: new Date().toISOString()
+                    })
+                });
             } catch (err) {}
 
             document.getElementById('cancelForm').classList.add('hidden');
