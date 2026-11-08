@@ -77,7 +77,7 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
-        📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
+        📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 עיריות, רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
     </div>
 
     <!-- Header -->
@@ -135,7 +135,7 @@
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] tracking-tight">
-                        פניות להצעות מחיר ועבודות מעיריות — <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
+                        פניות להצעות מחיר ועבודות מעיריות ומועצות מקומיות - <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
                     </h1>
                     
                     <p class="text-slate-300 text-base sm:text-xl leading-relaxed font-normal max-w-2xl">
@@ -930,27 +930,37 @@
 
         async function submitCancellation(e) {
             e.preventDefault();
-            const cancelName = sanitizeInput(document.getElementById('cancelName').value);
-            const cancelPhone = sanitizeInput(document.getElementById('cancelPhone').value);
+            const cancelName = sanitizeInput ? sanitizeInput(document.getElementById('cancelName').value) : document.getElementById('cancelName').value;
+            const rawPhone = sanitizeInput ? sanitizeInput(document.getElementById('cancelPhone').value) : document.getElementById('cancelPhone').value;
 
+            // נרמול מספר טלפון לפורמט 972
+            let cleanPhone = rawPhone.replace(/\D/g, '');
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = '972' + cleanPhone.substring(1);
+            }
+
+            // שליחת הודעת ביטול ישירה ל-Make
             try {
-                await fetch(MAKE_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        action: 'CANCEL_SUBSCRIPTION',
-                        name: cancelName,
-                        phone: cancelPhone,
-                        requestDate: new Date().toISOString()
-                    })
-                });
+                if (MAKE_WEBHOOK_URL && !MAKE_WEBHOOK_URL.includes("YOUR_MAKE_WEBHOOK")) {
+                    await fetch(MAKE_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'CANCEL_SUBSCRIPTION',
+                            name: cancelName,
+                            phone: cleanPhone,
+                            requestDate: new Date().toISOString()
+                        })
+                    });
+                }
             } catch (err) {}
 
             document.getElementById('cancelForm').classList.add('hidden');
             document.getElementById('cancelSuccessBox').classList.remove('hidden');
 
+            // פתיחת דוא"ל מתועד כגיבוי משפטי מלא
             const subject = encodeURIComponent(`בקשת ביטול מנוי - ${cancelName}`);
-            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cancelPhone}\nתודה.`);
+            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cleanPhone}\nתאריך בקשה: ${new Date().toLocaleDateString('he-IL')}\nתודה.`);
             setTimeout(() => {
                 window.location.href = `mailto:mehrazproil@gmail.com?subject=${subject}&body=${body}`;
             }, 600);
