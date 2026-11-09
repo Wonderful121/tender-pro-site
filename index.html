@@ -77,7 +77,7 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-emerald-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
-        📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 עיריות, רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
+        📡 חמ"ל הסריקה פעיל: מנטרים מדי יום מעל 250 רשויות מקומיות, חברות עירוניות, תאגידי מים ומשרדי ממשלה
     </div>
 
     <!-- Header -->
@@ -135,7 +135,7 @@
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] tracking-tight">
-                        פניות להצעות מחיר ועבודות מעיריות ומועצות מקומיות - <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
+                        פניות להצעות מחיר ועבודות מעיריות — <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
                     </h1>
                     
                     <p class="text-slate-300 text-base sm:text-xl leading-relaxed font-normal max-w-2xl">
@@ -391,24 +391,31 @@
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="categorySelect" class="block text-xs font-bold text-slate-300 mb-1.5">תחום הפעילות המבוקש *</label>
-                                <select id="categorySelect" required class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
+                                <label for="categorySelect" class="block text-xs font-bold text-slate-300 mb-1.5">תחום פעילות ראשי *</label>
+                                <select id="categorySelect" required onchange="updateSubCategories()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
                                     <option value="שיווק, דיגיטל, עיצוב ודפוס">🎨 שיווק, דיגיטל, וידאו, עיצוב ודפוס</option>
                                     <option value="אחזקה, חשמל, מיזוג, ניקיון והדברה">🛠️ אחזקה, חשמל, מיזוג, גינון וניקיון</option>
                                     <option value="הדרכה, סדנאות וייעוץ">🎓 הדרכה, סדנאות, הרצאות וייעוץ</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="planSelect" class="block text-xs font-bold text-slate-300 mb-1.5">מסלול מועדף בתום הניסיון</label>
-                                <select id="planSelect" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
-                                    <option value="מסלול פרו - 390 שח לחודש כולל מעמ (חודשי מתחדש ללא התחייבות)">⭐ מסלול פרו - 390 ₪ כולל מע"מ (חודשי גמיש ללא התחייבות, ביטול בכל עת)</option>
-                                    <option value="מסלול צמיחה - 299 שח לחודש כולל מעמ (חצי-שנתי ב-6 תשלומים)">מסלול צמיחה - 299 ₪ כולל מע"מ (חצי-שנתי - פריסה ל-6 תשלומים של 299 ₪)</option>
-                                    <option value="מסלול ארצי מלא - 590 שח לחודש כולל מעמ (חודשי מתחדש ללא התחייבות)">מסלול ארצי מלא - 590 ₪ כולל מע"מ (חודשי גמיש ללא התחייבות, ביטול בכל עת)</option>
+                                <label for="subCategorySelect" class="block text-xs font-bold text-slate-300 mb-1.5">תחום התמחות ספציפי *</label>
+                                <select id="subCategorySelect" required class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
+                                    <!-- Populated dynamically via JS -->
                                 </select>
-                                <p class="text-[11px] text-emerald-300 font-medium mt-1.5 leading-normal">
-                                    💳 הניסיון ל-3 ימים הינו 100% בחינם וללא חיוב אוטומטי. לקראת סיום תקופת הניסיון יישלח אליך קישור להסדרת המנוי בהתאם למסלול ואופי התשלום שבחרת.
-                                </p>
                             </div>
+                        </div>
+
+                        <div>
+                            <label for="planSelect" class="block text-xs font-bold text-slate-300 mb-1.5">מסלול מועדף בתום הניסיון</label>
+                            <select id="planSelect" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition">
+                                <option value="מסלול פרו - 390 שח לחודש כולל מעמ (חודשי מתחדש ללא התחייבות)">⭐ מסלול פרו - 390 ₪ כולל מע"מ (חודשי גמיש ללא התחייבות, ביטול בכל עת)</option>
+                                <option value="מסלול צמיחה - 299 שח לחודש כולל מעמ (חצי-שנתי ב-6 תשלומים)">מסלול צמיחה - 299 ₪ כולל מע"מ (חצי-שנתי - פריסה ל-6 תשלומים של 299 ₪)</option>
+                                <option value="מסלול ארצי מלא - 590 שח לחודש כולל מעמ (חודשי מתחדש ללא התחייבות)">מסלול ארצי מלא - 590 ₪ כולל מע"מ (חודשי גמיש ללא התחייבות, ביטול בכל עת)</option>
+                            </select>
+                            <p class="text-[11px] text-emerald-300 font-medium mt-1.5 leading-normal">
+                                💳 הניסיון ל-3 ימים הינו 100% בחינם וללא חיוב אוטומטי. לקראת סיום תקופת הניסיון יישלח אליך קישור להסדרת המנוי בהתאם למסלול ואופי התשלום שבחרת.
+                            </p>
                         </div>
 
                         <div id="formErrorBox" class="hidden bg-rose-950/90 border border-rose-500 text-rose-200 text-xs p-3 rounded-xl font-medium" role="alert" aria-live="assertive"></div>
@@ -645,8 +652,8 @@
             </div>
             <div class="overflow-y-auto space-y-3 text-xs leading-relaxed text-slate-600 pl-2">
                 <p><strong>1. זהות בעל השליטה במאגר המידע:</strong> בעל השליטה במאגר המידע הנאסף באתר זה הינו עוסק מורשה <strong>א.ב שיווק</strong>, דוא"ל לפניות בנושא פרטיות: <strong>mehrazproil@gmail.com</strong>.</p>
-                <p><strong>2. סוגי המידע הנאסף ומקורו (הודעה לפי סעיף 11):</strong> אנו אוספים מידע שנמסר על ידך מרצונך החופשי בטופס ההרשמה: שם מלא/שם העסק, מספר טלפון נייד (וואטסאפ), תחום פעילות עסקי, המסלול המבוקש וחותמת זמן של מתן ההסכמה. לא חלה עליך חובה חוקית למסור מידע זה, אולם ללא מסירתו לא נוכל לספק לך את שירות ההתראות בוואטסאפ.</p>
-                <p><strong>3. מטרות השימוש במידע:</strong> המידע משמש אך ורק למטרות הבאות: (א) שליחת התראות מכרזים מותאמות לתחום עיסוקך; (ב) ניהול קשר עם הלקוח, תמיכה, גבייה והנפקת חשבוניות כדין; (ג) משלוח עדכונים והודעות שירות או פרסומת בכפוף להסכמתך המפורשת לפי סעיף 30א לחוק התקשורת.</p>
+                <p><strong>2. סוגי המידע הנאסף ומקורו (הודעה לפי סעיף 11):</strong> אנו אוספים מידע שנמסר על ידך מרצונך החופשי בטופס ההרשמה: שם מלא/שם העסק, מספר טלפון נייד (וואטסאפ), תחום פעילות עסקי, תחום התמחות ספציפי, המסלול המבוקש וחותמת זמן של מתן ההסכמה. לא חלה עליך חובה חוקית למסור מידע זה, אולם ללא מסירתו לא נוכל לספק לך את שירות ההתראות בוואטסאפ.</p>
+                <p><strong>3. מטרות השימוש במידע:</strong> המידע משמש אך ורק למטרות הבאות: (א) שליחת התראות מכרזים מותאמות לתחום עיסוקך ולהתמחותך; (ב) ניהול קשר עם הלקוח, תמיכה, גבייה והנפקת חשבוניות כדין; (ג) משלוח עדכונים והודעות שירות או פרסומת בכפוף להסכמתך המפורשת לפי סעיף 30א לחוק התקשורת.</p>
                 <p><strong>4. העברת מידע לצדדים שלישיים ואבטחת מידע:</strong> אנו מיישמים אמצעי אבטחת מידע בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. איננו מוכרים או משכירים את פרטיך האישיים לגורמים מסחריים. המידע מעובד באמצעות ספקי תשתית ענן מאובטחים הנדרשים ישירות לצורך תפעול השירות.</p>
                 <p><strong>5. מדיניות עוגיות (Cookies) ואחסון מקומי:</strong> האתר משתמש באחסון מקומי בדפדפן לצרכים תפעוליים והכרחיים בלבד: שמירת העדפות הנגישות, שמירת אישור באנר העוגיות והגנה מפני בוטים. באפשרותך למחוק או לחסום עוגיות דרך הגדרות הדפדפן שלך.</p>
                 <p><strong>6. זכויות נושא המידע:</strong> בהתאם לחוק הגנת הפרטיות, הינך זכאי/ת לעיין במידע המוחזק אודותיך במאגר, ולבקש לתקנו או למחקו כליל בכל עת, באמצעות פנייה לכתובת הדוא"ל <strong>mehrazproil@gmail.com</strong> או בהשבת המילה "הסר" בוואטסאפ.</p>
@@ -688,6 +695,50 @@
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/6egce4fmc3v5xr2j96e1wkpthxccwsdo";
         const PAGE_LOAD_TIME = Date.now();
         let lastFocusedElement = null;
+
+        // Dynamic Sub-Category Data
+        const subCategoriesData = {
+            "שיווק, דיגיטל, עיצוב ודפוס": [
+                { value: "שיווק ודיגיטל - כללי", text: "שיווק ודיגיטל - כללי (סוכנות / משרד פרסום)" },
+                { value: "וידאו וצילום", text: "וידאו וצילום" },
+                { value: "סושיאל וקמפיינים", text: "סושיאל וקמפיינים" },
+                { value: "עיצוב גרפי ומיתוג", text: "עיצוב גרפי ומיתוג" },
+                { value: "דפוס ושילוט", text: "דפוס ושילוט" }
+            ],
+            "אחזקה, חשמל, מיזוג, ניקיון והדברה": [
+                { value: "אחזקה ותפעול - כללי", text: "אחזקה ותפעול - כללי (קבלן אחזקה כללי)" },
+                { value: "מיזוג אוויר", text: "מיזוג אוויר" },
+                { value: "חשמל ותאורה", text: "חשמל ותאורה" },
+                { value: "אינסטלציה ומשאבות", text: "אינסטלציה ומשאבות" },
+                { value: "שיפוצים, זגגות ואלומיניום", text: "שיפוצים, זגגות ואלומיניום" },
+                { value: "גינון, ניקיון והדברה", text: "גינון, ניקיון והדברה" }
+            ],
+            "הדרכה, סדנאות וייעוץ": [
+                { value: "הדרכה וייעוץ - כללי", text: "הדרכה וייעוץ - כללי (מרכז הדרכה / חברת ייעוץ)" },
+                { value: "מרצים ומנחי סדנאות", text: "מרצים ומנחי סדנאות" },
+                { value: "חינוך, נוער והפעלות", text: "חינוך, נוער והפעלות" },
+                { value: "טיפול רגשי ורווחה", text: "טיפול רגשי ורווחה" },
+                { value: "ייעוץ מומחים וכמאות", text: "ייעוץ מומחים וכמאות" }
+            ]
+        };
+
+        function updateSubCategories() {
+            const catSelect = document.getElementById('categorySelect');
+            const subCatSelect = document.getElementById('subCategorySelect');
+            const selectedCat = catSelect.value;
+            const subCats = subCategoriesData[selectedCat] || [];
+
+            subCatSelect.innerHTML = '';
+            subCats.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.value;
+                opt.textContent = item.text;
+                subCatSelect.appendChild(opt);
+            });
+        }
+
+        // Initialize sub-categories on page load
+        updateSubCategories();
 
         function sanitizeInput(str) {
             if (!str) return "";
@@ -892,15 +943,22 @@
             const selectedPlanValue = sanitizeInput(planSelectElement.value);
             const selectedPlanCleanText = planSelectElement.options[planSelectElement.selectedIndex].text.replace(/^[⭐\s]+/, '').trim();
 
+            const selectedCategory = sanitizeInput(document.getElementById('categorySelect').value);
+            let selectedSubCategory = sanitizeInput(document.getElementById('subCategorySelect').value);
+            if (selectedSubCategory.includes("כללי") || selectedSubCategory.includes("כל התחומים")) {
+                selectedSubCategory = selectedSubCategory;
+            }
+
             const nowIso = new Date().toISOString();
             const payload = {
                 name: cleanName,
                 phone: normalizedPhone,
-                category: sanitizeInput(document.getElementById('categorySelect').value),
+                category: selectedCategory,
+                subCategory: selectedSubCategory,
                 plan: selectedPlanValue,
                 status: 'ניסיון 3 ימים',
                 termsAccepted: true,
-                consentVersion: 'Terms_v2.7_IL_B2B_PaymentTransparency',
+                consentVersion: 'Terms_v2.8_IL_B2B_SubCategoryUpdate',
                 consentTimestamp: nowIso,
                 signupDate: nowIso.split('T')[0]
             };
