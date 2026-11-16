@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Strict Cyber Security Headers (With Make US2 Webhook Permissions) -->
+    <!-- Strict Cyber Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
@@ -54,15 +54,17 @@
             outline: 3px solid #F59E0B !important;
             outline-offset: 2px !important;
         }
-        .acc-large-text { font-size: 118% !important; }
-        .acc-small-text { font-size: 90% !important; }
-        .acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
-        .acc-invert { filter: invert(100%) hue-rotate(180deg) !important; background-color: #000 !important; }
-        .acc-highlight-links a, .acc-highlight-links button { text-decoration: underline !important; outline: 2px solid #F59E0B !important; }
-        .acc-highlight-headings h1, .acc-highlight-headings h2, .acc-highlight-headings h3 { background-color: rgba(16, 185, 129, 0.2) !important; border-right: 4px solid #10B981 !important; padding-right: 8px !important; }
-        .acc-readable-font, .acc-readable-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.3px !important; }
-        .acc-big-cursor, .acc-big-cursor * { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="%23000000" stroke="%23FFFFFF" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>'), auto !important; }
-        .acc-stop-animations *, .acc-stop-animations *::before, .acc-stop-animations *::after { animation: none !important; transition: none !important; }
+
+        /* Fixed Accessibility Styles for Robust Execution */
+        body.acc-large-text, body.acc-large-text p, body.acc-large-text span, body.acc-large-text a, body.acc-large-text li, body.acc-large-text h1, body.acc-large-text h2, body.acc-large-text h3 { font-size: 118% !important; }
+        body.acc-small-text, body.acc-small-text p, body.acc-small-text span, body.acc-small-text a, body.acc-small-text li { font-size: 90% !important; }
+        body.acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
+        body.acc-invert { filter: invert(100%) hue-rotate(180deg) !important; background-color: #000 !important; }
+        body.acc-highlight-links a, body.acc-highlight-links button { text-decoration: underline !important; outline: 2px solid #F59E0B !important; background-color: rgba(245, 158, 11, 0.15) !important; }
+        body.acc-highlight-headings h1, body.acc-highlight-headings h2, body.acc-highlight-headings h3 { background-color: rgba(16, 185, 129, 0.2) !important; border-right: 4px solid #10B981 !important; padding-right: 8px !important; }
+        body.acc-readable-font, body.acc-readable-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.3px !important; }
+        body.acc-big-cursor, body.acc-big-cursor * { cursor: pointer !important; }
+        body.acc-stop-animations *, body.acc-stop-animations *::before, body.acc-stop-animations *::after { animation: none !important; transition: none !important; }
         
         .sr-only-focusable:focus {
             position: fixed; top: 12px; right: 12px; z-index: 10000;
@@ -841,10 +843,17 @@
             if (btn) btn.setAttribute('aria-expanded', (!isHidden).toString());
         }
 
+        // Fixed Robust Accessibility Functions
         function toggleAccClass(className) {
-            if (className === 'acc-large-text') document.body.classList.remove('acc-small-text');
-            if (className === 'acc-small-text') document.body.classList.remove('acc-large-text');
-            document.body.classList.toggle(className);
+            if (className === 'acc-large-text') {
+                document.body.classList.remove('acc-small-text');
+                document.body.classList.toggle('acc-large-text');
+            } else if (className === 'acc-small-text') {
+                document.body.classList.remove('acc-large-text');
+                document.body.classList.toggle('acc-small-text');
+            } else {
+                document.body.classList.toggle(className);
+            }
         }
 
         function resetAccessibility() {
@@ -945,9 +954,6 @@
 
             const selectedCategory = sanitizeInput(document.getElementById('categorySelect').value);
             let selectedSubCategory = sanitizeInput(document.getElementById('subCategorySelect').value);
-            if (selectedSubCategory.includes("כללי") || selectedSubCategory.includes("כל התחומים")) {
-                selectedSubCategory = selectedSubCategory;
-            }
 
             const nowIso = new Date().toISOString();
             const payload = {
@@ -991,13 +997,11 @@
             const cancelName = sanitizeInput ? sanitizeInput(document.getElementById('cancelName').value) : document.getElementById('cancelName').value;
             const rawPhone = sanitizeInput ? sanitizeInput(document.getElementById('cancelPhone').value) : document.getElementById('cancelPhone').value;
 
-            // נרמול מספר טלפון לפורמט 972
             let cleanPhone = rawPhone.replace(/\D/g, '');
             if (cleanPhone.startsWith('0')) {
                 cleanPhone = '972' + cleanPhone.substring(1);
             }
 
-            // שליחת הודעת ביטול ישירה ל-Make
             try {
                 if (MAKE_WEBHOOK_URL && !MAKE_WEBHOOK_URL.includes("YOUR_MAKE_WEBHOOK")) {
                     await fetch(MAKE_WEBHOOK_URL, {
@@ -1016,9 +1020,8 @@
             document.getElementById('cancelForm').classList.add('hidden');
             document.getElementById('cancelSuccessBox').classList.remove('hidden');
 
-            // פתיחת דוא"ל מתועד כגיבוי משפטי מלא
             const subject = encodeURIComponent(`בקשת ביטול מנוי - ${cancelName}`);
-            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cleanPhone}\nתאריך בקשה: ${new Date().toLocaleDateString('he-IL')}\nתודה.`);
+            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cleanPhone}\nתאריך בקשה: ${new Date().toLocaleDateString('he-IL')}\nודה.`);
             setTimeout(() => {
                 window.location.href = `mailto:mehrazproil@gmail.com?subject=${subject}&body=${body}`;
             }, 600);
