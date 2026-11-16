@@ -55,15 +55,15 @@
             outline-offset: 2px !important;
         }
 
-        /* Fixed Accessibility Styles & Rock-Solid UI Integration */
-        body.acc-large-text, body.acc-large-text p, body.acc-large-text span, body.acc-large-text a, body.acc-large-text li, body.acc-large-text h1, body.acc-large-text h2, body.acc-large-text h3 { font-size: 118% !important; }
-        body.acc-small-text, body.acc-small-text p, body.acc-small-text span, body.acc-small-text a, body.acc-small-text li { font-size: 90% !important; }
+        /* Robust Accessibility Styles */
+        body.acc-large-text { font-size: 115% !important; }
+        body.acc-small-text { font-size: 90% !important; }
         body.acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
         body.acc-invert { filter: invert(100%) hue-rotate(180deg) !important; background-color: #000 !important; }
         body.acc-highlight-links a, body.acc-highlight-links button { text-decoration: underline !important; outline: 2px solid #F59E0B !important; background-color: rgba(245, 158, 11, 0.15) !important; }
         body.acc-highlight-headings h1, body.acc-highlight-headings h2, body.acc-highlight-headings h3 { background-color: rgba(16, 185, 129, 0.2) !important; border-right: 4px solid #10B981 !important; padding-right: 8px !important; }
         body.acc-readable-font, body.acc-readable-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.3px !important; }
-        body.acc-big-cursor, body.acc-big-cursor * { cursor: pointer !important; }
+        body.acc-big-cursor, body.acc-big-cursor * { cursor: zoom-in !important; }
         body.acc-stop-animations *, body.acc-stop-animations *::before, body.acc-stop-animations *::after { animation: none !important; transition: none !important; }
         
         .sr-only-focusable:focus {
@@ -843,7 +843,6 @@
             if (btn) btn.setAttribute('aria-expanded', (!isHidden).toString());
         }
 
-        // Rock-Solid Accessibility Class Toggle (Direct Body Manipulation)
         function toggleAccClass(className) {
             if (className === 'acc-large-text') {
                 document.body.classList.remove('acc-small-text');
