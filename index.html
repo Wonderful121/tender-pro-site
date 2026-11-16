@@ -40,22 +40,23 @@
     <style>
         :root { --site-font-scale: 1rem; }
         
-        /* Strict Mobile & Desktop Layout Locking against Horizontal Scroll */
+        /* Absolute Lockdown on Horizontal Overflow & White Space */
         html, body {
             overflow-x: hidden !important;
             width: 100% !important;
-            max-width: 100% !important;
+            max-width: 100vw !important;
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
             font-family: 'Heebo', sans-serif; 
             scroll-behavior: smooth;
             font-size: var(--site-font-scale);
+            position: relative;
         }
 
         *, *:before, *:after {
             box-sizing: inherit !important;
-            max-width: 100%;
+            max-width: 100vw !important;
         }
 
         .wa-bg {
@@ -74,7 +75,7 @@
             outline-offset: 2px !important;
         }
 
-        /* Accessibility Modes applied to content wrapper, NOT affecting floating widget */
+        /* Accessibility Modes */
         .accessible-content.acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
         .accessible-content.acc-invert { filter: invert(100%) hue-rotate(180deg) !important; background-color: #000 !important; color: #fff !important; }
         
@@ -95,7 +96,7 @@
 
     <a href="#main-content" class="sr-only sr-only-focusable">דלג לתוכן המרכזי (ניווט מקלדת)</a>
 
-    <!-- ACCESSIBILITY FLOATING WIDGET (ISOLATED FIXED CONTAINER - NEVER DISAPPEARS) -->
+    <!-- ACCESSIBILITY FLOATING WIDGET (STABLE FIXED POSITION) -->
     <div id="accessibilityWidgetContainer" style="position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 999999 !important;" class="flex flex-col items-start">
         <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 sm:w-80 text-slate-900 text-xs text-right" role="dialog" aria-label="תפריט התאמות נגישות">
             <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
@@ -148,7 +149,7 @@
         </button>
     </div>
 
-    <!-- WRAPPER FOR CONTENT THAT RECEIVES ACCESSIBILITY FILTERS -->
+    <!-- WRAPPER FOR CONTENT -->
     <div id="accessibleContentWrapper" class="accessible-content w-full overflow-x-hidden">
 
         <!-- Top Announcement Bar -->
@@ -157,7 +158,7 @@
         </div>
 
         <!-- Header -->
-        <header class="sticky top-0 z-40 bg-[#070C18]/95 backdrop-blur-md border-b border-slate-800 text-white w-full">
+        <header class="sticky top-0 z-30 bg-[#070C18]/95 backdrop-blur-md border-b border-slate-800 text-white w-full">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between w-full">
                 <a href="#" class="flex items-center gap-3 group min-w-0" aria-label="מכרז פרו - דף הבית">
                     <div class="w-12 h-12 rounded-xl bg-[#070C18] border border-slate-700/80 flex items-center justify-center shadow-lg overflow-hidden shrink-0">
@@ -179,8 +180,8 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="truncate">
-                        <span class="font-black text-xl sm:text-2xl tracking-tight text-white">מכרז <span class="text-[#10B981]">פרו</span></span>
+                    <div class="min-w-0">
+                        <span class="font-black text-xl sm:text-2xl tracking-tight text-white block truncate">מכרז <span class="text-[#10B981]">פרו</span></span>
                         <span class="block text-[11px] text-slate-400 font-medium -mt-1 truncate">מודיעין מכרזים ועבודות לעסקים</span>
                     </div>
                 </a>
@@ -199,7 +200,7 @@
             </div>
         </header>
 
-        <main id="main-content" class="w-full overflow-hidden">
+        <main id="main-content" class="w-full overflow-x-hidden">
             <!-- Hero Section -->
             <section class="gradient-hero text-white pt-12 pb-20 lg:py-24 relative overflow-hidden w-full">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
@@ -902,27 +903,6 @@
                 'acc-big-cursor',
                 'acc-stop-animations'
             );
-        }
-
-        function initCookieBanner() {
-            try {
-                const consent = localStorage.getItem('tp_cookie_consent');
-                if (!consent) {
-                    document.getElementById('cookieBanner').classList.add('hidden'); // hidden for stability if needed, or remove('hidden') to show
-                }
-            } catch (e) {}
-        }
-
-        initCookieBanner();
-
-        function acceptCookies(level) {
-            try {
-                localStorage.setItem('tp_cookie_consent', JSON.stringify({
-                    level: level,
-                    timestamp: new Date().toISOString()
-                }));
-            } catch (e) {}
-            document.getElementById('cookieBanner').classList.add('hidden');
         }
 
         function showFormError(msg) {
