@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Strict Cyber Security Headers -->
+    <!-- Strict Cyber Security Headers (With Make US2 Webhook Permissions) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
@@ -55,7 +55,7 @@
             outline-offset: 2px !important;
         }
 
-        /* Fixed Accessibility Styles for Robust Execution */
+        /* Fixed Accessibility Styles & Rock-Solid UI Integration */
         body.acc-large-text, body.acc-large-text p, body.acc-large-text span, body.acc-large-text a, body.acc-large-text li, body.acc-large-text h1, body.acc-large-text h2, body.acc-large-text h3 { font-size: 118% !important; }
         body.acc-small-text, body.acc-small-text p, body.acc-small-text span, body.acc-small-text a, body.acc-small-text li { font-size: 90% !important; }
         body.acc-contrast { filter: grayscale(100%) contrast(150%) !important; }
@@ -137,7 +137,7 @@
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.15] tracking-tight">
-                        פניות להצעות מחיר ועבודות מעיריות — <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
+                        פניות להצעות מחיר ועבודות מעיריות ומועצות מקומיות - <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-200">ישירות לוואטסאפ שלך.</span>
                     </h1>
                     
                     <p class="text-slate-300 text-base sm:text-xl leading-relaxed font-normal max-w-2xl">
@@ -539,7 +539,7 @@
         </div>
     </div>
 
-    <!-- Accessibility Widget -->
+    <!-- Accessibility Widget (Rock-Solid Fixed Position) -->
     <div class="fixed bottom-5 left-5 z-50 flex flex-col items-start">
         <div id="accMenu" class="hidden mb-3 bg-white border-2 border-slate-800 rounded-2xl shadow-2xl p-4 w-72 sm:w-80 text-slate-900 text-xs" role="dialog" aria-label="תפריט התאמות נגישות">
             <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
@@ -586,7 +586,7 @@
         </div>
 
         <button type="button" id="accTriggerBtn" onclick="toggleAccessibilityMenu()" 
-            class="w-[52px] h-[52px] rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white border-2 border-emerald-400 shadow-2xl backdrop-blur-md flex items-center justify-center text-2xl transition transform hover:scale-105" 
+            class="w-[52px] h-[52px] rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white border-2 border-emerald-400 shadow-2xl backdrop-blur-md flex items-center justify-center text-2xl transition transform hover:scale-105 focus:outline-none" 
             aria-label="פתח תפריט נגישות" aria-expanded="false" title="תפריט נגישות">
             ♿
         </button>
@@ -843,7 +843,7 @@
             if (btn) btn.setAttribute('aria-expanded', (!isHidden).toString());
         }
 
-        // Fixed Robust Accessibility Functions
+        // Rock-Solid Accessibility Class Toggle (Direct Body Manipulation)
         function toggleAccClass(className) {
             if (className === 'acc-large-text') {
                 document.body.classList.remove('acc-small-text');
@@ -1021,7 +1021,7 @@
             document.getElementById('cancelSuccessBox').classList.remove('hidden');
 
             const subject = encodeURIComponent(`בקשת ביטול מנוי - ${cancelName}`);
-            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cleanPhone}\nתאריך בקשה: ${new Date().toLocaleDateString('he-IL')}\nודה.`);
+            const body = encodeURIComponent(`שלום,\nאבקש לבטל את המנוי עבור:\nשם העסק: ${cancelName}\nמספר טלפון מנוי: ${cleanPhone}\nתאריך בקשה: ${new Date().toLocaleDateString('he-IL')}\nתודה.`);
             setTimeout(() => {
                 window.location.href = `mailto:mehrazproil@gmail.com?subject=${subject}&body=${body}`;
             }, 600);
